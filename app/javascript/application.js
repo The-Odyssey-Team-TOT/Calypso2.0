@@ -6,3 +6,4 @@ import "bootstrap"
 import "@rails/actioncable"
 import "./globe.js"
 //= require three
+//= require globe
