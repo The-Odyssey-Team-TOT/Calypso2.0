@@ -11,4 +11,4 @@ pin "@popperjs/core", to: "popper.js", preload: true
 
 pin "three", to: "https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.module.js"
 pin "three/addons/OrbitControls", to: "https://cdn.jsdelivr.net/npm/three@0.149.0/examples/jsm/controls/OrbitControls.js"
-pin "@rails/actioncable", to: "actioncable.esm.js"
+pin "@rails/actioncable", to: "@rails--actioncable.js" # @7.1.3
