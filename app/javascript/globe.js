@@ -33,3 +33,4 @@ function initGlobe() {
 }
 
 document.addEventListener('DOMContentLoaded', initGlobe);
+
