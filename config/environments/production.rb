@@ -23,6 +23,9 @@ Rails.application.configure do
 
   # Disable serving static files from `public/`, relying on NGINX/Apache to do so instead.
   # config.public_file_server.enabled = false
+  #
+  config.cache_store = :redis_cache_store, { url: ENV['REDIS_URL'] }
+
 
   # Compress CSS using a preprocessor.
   # config.assets.css_compressor = :sass
