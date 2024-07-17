@@ -15,6 +15,22 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :nickname,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "nickname", placeholder: "Nickname" } %>
+    <%= f.input :description,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "description", placeholder: "Description" } %>
+    <%= f.input :spoken_language,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "spoken_language", placeholder: "The language you're fluent in" } %>
+    <%= f.input :learning_language,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "learning_language", placeholder: "The language you want to learn" } %>
   </div>
 
   <div class="form-actions">

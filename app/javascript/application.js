@@ -3,6 +3,4 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "@popperjs/core"
 import "bootstrap"
-// import "./globe.js"
 import "@rails/actioncable"
-//= require globe
