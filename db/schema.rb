@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_17_122501) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_17_131702) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,6 +46,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_17_122501) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password"
+    t.string "status"
+    t.string "language"
+    t.string "language_level"
+    t.string "topic"
+    t.string "security_level"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -86,6 +92,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_17_122501) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "nickname"
+    t.string "description"
+    t.string "spoken_language"
+    t.string "learning_language"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
