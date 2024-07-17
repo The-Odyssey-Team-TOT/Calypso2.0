@@ -1,13 +1,4 @@
 Rails.application.routes.draw do
-  get 'walls/show'
-  get 'posts/new'
-  get 'posts/create'
-  get 'posts/edit'
-  get 'posts/update'
-  get 'posts/destroy'
-  get 'user/edit'
-  get 'user/update'
-  get 'user/show'
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -19,8 +10,23 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
+  resources :users, only: [:show, :edit, :update, :destroy]
+
+  resources :chatrooms, except: :show
+
   resources :chatrooms, only: :show do
-    resources :messages, only: :create
+    resources :messages, only: :create do
+      resources :notifications, only: [:index, :show, :destroy]
+    end
+    resources :walls, only: :show do
+      resources :posts, except: :show
+    end
+    resources :users, only: [:index] do
+      member do
+        patch :ban
+        patch :admin
+      end
+    end
   end
 
 end
