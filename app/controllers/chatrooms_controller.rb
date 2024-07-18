@@ -34,9 +34,6 @@ class ChatroomsController < ApplicationController
       render :new
     end
   end
-
-
-
     # def ban
     #   @user_to_ban = User.find(params[:user_id])
     #   @chatroom = Chatroom.find(params[:id])
@@ -45,7 +42,7 @@ class ChatroomsController < ApplicationController
     #     @chatroom.user.delete(@user_to_ban)
     #   end
     # end
-
+    
   def admin
     @new_admin = User.find(params[:user_id])
     @chatroom = Chatroom.find(params[:id])
