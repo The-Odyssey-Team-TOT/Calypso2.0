@@ -37,6 +37,7 @@ class PostsController < ApplicationController
       redirect_to wall_path(@wall)
     else
       render alert: "You cannot delete this post"
+    end
   end
 
   private
