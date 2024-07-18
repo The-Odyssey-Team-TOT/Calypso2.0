@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :update, :destroy]
 
-  resources :chatrooms, except: :show
+  resources :chatrooms, except: [:show, :index]
 
   resources :chatrooms, only: :show do
     resources :messages, only: :create do
@@ -27,6 +27,7 @@ Rails.application.routes.draw do
         patch :admin
       end
     end
+    resources :chatrooms, only: :index
   end
 
 end

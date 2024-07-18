@@ -1,31 +1,19 @@
 <div class="chat-show">
-  <!-- Left Sidebar -->
   <div class="w-1/4 bg-black p-4">
     <div class="mb-4">
       <input type="text" placeholder="Search for a room" class="bg-black w-full px-3 py-2 rounded-lg focus:outline-none focus:ring focus:ring-blue-200">
     </div>
-    <div>
-      <% @chatroom.messages.each do |chatroom| %>
-        <div class="p-4 bg-gray-100 rounded-lg mb-2 cursor-pointer">
-          <h3 class="text-lg font-semibold"><%= chatroom.name %></h3>
-          <p class="text-sm text-white text-gray-600">Message message message</p>
-        </div>
-      <% end %>
-    </div>
+    <%= render "allrooms" %>
   </div>
 
-  <!-- Main Chat Area -->
   <div class="flex-1 text-white flex flex-col">
     <div class="flex items-center justify-between p-4 bg-black">
       <h1 class="text-2xl font-bold"><%= @chatroom.name %></h1>
     </div>
     <div id="msg-container" class="flex-1 p-4 overflow-y-auto">
       <% @chatroom.messages.each do |message| %>
-        <div class="mb-4">
-          <p class="text-sm text-gray-600"><strong><%= message.user.username %>:</strong></p>
-          <p class="text-md text-gray-800"><%= message.content %></p>
-        </div>
-      <% end %>
+        <%= render "messages/message", message: message %>
+        <% end %>
     </div>
     <div class="p-4 bg-black">
       <%= form_with(model: [ @chatroom, @chatroom.messages.build ], local: true) do |form| %>
@@ -37,7 +25,6 @@
     </div>
   </div>
 
-  <!-- Right Sidebar -->
   <div class="w-1/4 bg-black p-4 border-gray-200">
     <div class="mb-4">
       <button class="w-9/12 bg-gray-300 hover:bg-gray-400 text-black font-bold py-2 px-5 rounded">View room info</button>
