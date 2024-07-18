@@ -7,6 +7,34 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+User.create(email: 'user1@example.com') do |user|
+  user.nickname = 'Alex'
+  user.description = 'I am a Software Engineer at Google'
+  user.spoken_language = 'Spanish'
+  user.learning_language = 'German'
+  user.password = 'password1'
+end
 
+User.create(email: 'user2@example.com') do |user|
+  user.nickname = 'Ryan'
+  user.description = 'I am a Graphic Designer at Microsoft'
+  user.spoken_language = 'Japanese'
+  user.learning_language = 'English'
+  user.password = 'password2'
+end
 
-Chatroom.create(name: "Calypso")
+User.create(email: 'user3@example.com') do |user|
+  user.nickname = 'Michael'
+  user.description = 'I am a baker in Marseille'
+  user.spoken_language = 'French'
+  user.learning_language = 'Polish'
+  user.password = 'password3'
+end
+
+User.create(email: 'user4@example.com') do |user|
+  user.nickname = 'Fabiola'
+  user.description = 'I am a big companys CEO'
+  user.spoken_language = 'Mandarin'
+  user.learning_language = 'Dutch'
+  user.password = 'password4'
+end
