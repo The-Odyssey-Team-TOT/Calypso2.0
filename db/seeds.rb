@@ -9,4 +9,5 @@
 #   end
 
 
-Chatroom.create(name: "Calypso")
+chatroom1 = Chatroom.create(
+  name: "Calypso", password: "", status: "private", language:"french", language_level:"advanced", topic: "anime", security_level: "solid")
