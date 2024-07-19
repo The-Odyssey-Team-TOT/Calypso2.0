@@ -3,6 +3,7 @@ class Chatroom < ApplicationRecord
   has_many :users
   has_many :posts, through: :wall
   has_one_attached :photo
+  has_one :wall, dependent: :destroy
 
 
   # LANGUAGE_LEVEL = ["beginner", "medium", "advanced", "fluent"]

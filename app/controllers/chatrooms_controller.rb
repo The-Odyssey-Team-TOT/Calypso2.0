@@ -7,6 +7,9 @@ class ChatroomsController < ApplicationController
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new
     @chatrooms = Chatroom.all
+    @wall = @chatroom.wall
+    @posts = @wall.present? ? @wall.posts : []
+    @post = Post.new(wall: @wall)
   end
 
   def new
@@ -30,19 +33,16 @@ class ChatroomsController < ApplicationController
   def create
     @chatroom = Chatroom.new(chatroom_params)
     if @chatroom.save
-      redirect_to @chatroom
+      @wall = Wall.new(chatroom: @chatroom)
+      if @wall.save
+        redirect_to @chatroom
+      else
+        render alert: "Your wall could not be created"
+      end
     else
       render :new
     end
   end
-    # def ban
-    #   @user_to_ban = User.find(params[:user_id])
-    #   @chatroom = Chatroom.find(params[:id])
-
-    #   if @chatroom && @user_to_ban
-    #     @chatroom.user.delete(@user_to_ban)
-    #   end
-    # end
 
   def admin
     @new_admin = User.find(params[:user_id])
@@ -52,6 +52,10 @@ class ChatroomsController < ApplicationController
   end
 
   private
+
+  def wall_params
+    params.require(:wall).permit(:chatroom_id)
+  end
 
   def chatroom_params
     params.require(:chatroom).permit(:username, :name, :password, :private, :public)
