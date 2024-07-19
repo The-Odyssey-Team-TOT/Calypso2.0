@@ -27,13 +27,18 @@
 
   <div class="w-1/4 bg-black p-4 border-gray-200">
     <div class="mb-4">
-      <button class="w-9/12 bg-gray-300 hover:bg-gray-400 text-black font-bold py-2 px-5 rounded">View room info</button>
+     <p><%= @chatroom.name %>'s Wall<p>
     </div>
-    <div class="mb-4">
-      <button class="w-9/12 bg-gray-300 hover:bg-gray-400 text-black font-bold py-2 px-4 rounded">View all members</button>
-    </div>
-    <div>
-      <button class="w-9/12 bg-red-500 hover:bg-red-700 text-black font-bold py-2 px-4 rounded">Delete</button>
-    </div>
+     <% @wall.posts.each do |post| %>
+        <div class="post">
+          <p><%= post.content %></p>
+        </div>
+      <% end %>
+      <%= simple_form_for [@chatroom, @wall, @post] do |form| %>
+      <div class="mb-3">
+        <%= form.input :content, as: :text %>
+      </div>
+        <%= form.button :submit, 'Post', class: 'btn btn-secondary' %>
+      <% end %>
   </div>
 </div>

@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       resources :notifications, only: [:index, :show, :destroy]
     end
     resources :walls, only: :show do
-      resources :posts, except: :show
+      resources :posts
     end
     resources :users, only: [:index] do
       member do
