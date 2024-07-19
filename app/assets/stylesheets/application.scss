@@ -66,6 +66,10 @@ html {
   padding: none;
  }
 
+ #chat-nav {
+  background-color: rgb(61, 61, 61);
+ }
+
  .connect-bnt {
   display: flex;
   justify-content: center;
@@ -117,6 +121,7 @@ html {
 textarea {
   resize: none;
   background-color: #D1D5DB;
+  color: black;
 }
 
 :hover button {
@@ -178,7 +183,7 @@ form {
   // background-image: url(https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGU1dHBhd3h4c2xudnJwNWhtM2Nmam40NndkZTg3b2N4NHU5Ym42OCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/U3D1CV0BCHXU6WA3rP/giphy.webp);
   background-size: cover;
   background-repeat: no-repeat;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 #nav-chat-container {
