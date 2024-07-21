@@ -184,6 +184,8 @@ form {
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 4px;
+  display: flex;
+  flex-direction: column;
 }
 
 #nav-chat-container {
@@ -199,3 +201,26 @@ form {
 // .mb-4 {
 //   background-color: red;
 // }
+
+.message-left, .message-right {
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  max-width: 60%;
+}
+
+.message-left {
+  background-color: #333;
+  color: #eee;
+  align-self: flex-start;
+  margin-right: auto;
+  text-align: left;
+}
+
+.message-right {
+  background-color: #007bff;
+  color: #fff;
+  align-self: flex-end;
+  margin-left: auto;
+  text-align: right;
+}
