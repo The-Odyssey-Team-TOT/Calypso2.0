@@ -3,6 +3,9 @@
 import { application } from "./application";
 import { eagerLoadControllersFrom } from "@hotwired/stimulus-loading";
 eagerLoadControllersFrom("controllers", application);
+import { Controller } from "@hotwired/stimulus"
+import SubmitOnEnterController from "./submit_on_enter_controller"
+application.register("submit-on-enter", SubmitOnEnterController)
 
 // Import GlobeController if necessary
 // import GlobeController from "./globe_controller";

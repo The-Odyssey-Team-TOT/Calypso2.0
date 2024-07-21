@@ -1,12 +1,17 @@
 class ChatroomsController < ApplicationController
-  def index
-    @chatrooms = Chatroom.all
-  end
+
 
   def show
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new
     @chatrooms = Chatroom.all
+    if params[:query].present?
+      @chatrooms = @chatrooms.where("name ILIKE ?", "%#{params[:query]}%")
+    end
+    respond_to do |format|
+      format.html
+      format.text { render partial: 'chatrooms/rooms', locals: { chatrooms: @chatrooms }, formats: [:html] }
+    end
     @wall = @chatroom.wall
     @posts = @wall.present? ? @wall.posts : []
     @post = Post.new(wall: @wall)
@@ -58,6 +63,6 @@ class ChatroomsController < ApplicationController
   end
 
   def chatroom_params
-    params.require(:chatroom).permit(:username, :name, :password, :private, :public)
+    params.require(:chatroom).permit(:name, :password, :status, :language, :language_level)
   end
 end

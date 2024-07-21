@@ -12,7 +12,8 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to chatroom_path(params[:chatroom_id])
     else
-      render alert: "Your post could not be sent"
+      flash[:alert] = "Your post could not be sent."
+      redirect_to chatroom_path(params[:chatroom_id])
     end
   end
 
