@@ -1,7 +1,7 @@
 <div class="chat-show">
   <div id="chat-nav" class="w-1/4 p-4">
     <div class="mb-4 bg-black w-full px-3 py-2 rounded-lg focus:outline-none focus:ring focus:ring-blue-200">
-      <%= form_with url: chatrooms_path, method: :get, class: "d-flex" do %>
+      <%= form_with url: chatroom_path(@chatroom), method: :get, class: "d-flex" do %>
       <%= text_field_tag :query,
             params[:query],
             class: "form-control bg-black text-white",
@@ -10,7 +10,7 @@
       <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
     <% end %>
     </div>
-    <%= render "rooms" %>
+    <%= render 'rooms' %>
   </div>
 
   <div class="flex-1 text-white flex flex-col">
