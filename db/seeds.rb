@@ -52,60 +52,60 @@
 
 
 # Wall.create!(chatroom_id: Chatroom.first.id)
-# Message.destroy_all
-# Wall.destroy_all
-# Chatroom.destroy_all
+Message.destroy_all
+Wall.destroy_all
+Chatroom.destroy_all
 
-Chatroom.find_each do |chatroom|
-  Wall.create!(chatroom_id: chatroom.id)
-end
+# Chatroom.find_each do |chatroom|
+#   Wall.create!(chatroom_id: chatroom.id)
+# end
 
-Chatroom.create!(
-  name: "Human lore",
-  password: "",
-  status: "private",
-  language: "english",
-  language_level: "advanced",
-  topic: "history",
-  security_level: ""
-)
+# Chatroom.create!(
+#   name: "Human lore",
+#   password: "",
+#   status: "private",
+#   language: "english",
+#   language_level: "advanced",
+#   topic: "history",
+#   security_level: ""
+# )
 
-Chatroom.create!(
-  name: "pa comer rico",
-  password: "",
-  status: "public",
-  language: "spanish",
-  language_level: "fluent",
-  topic: "food",
-  security_level: ""
-)
+# Chatroom.create!(
+#   name: "pa comer rico",
+#   password: "",
+#   status: "public",
+#   language: "spanish",
+#   language_level: "fluent",
+#   topic: "food",
+#   security_level: ""
+# )
 
-Chatroom.create!(
-  name: "Foot",
-  password: "",
-  status: "private",
-  language: "french",
-  language_level: "beginner",
-  topic: "sports",
-  security_level: ""
-)
+# Chatroom.create!(
+#   name: "Foot",
+#   password: "",
+#   status: "private",
+#   language: "french",
+#   language_level: "beginner",
+#   topic: "sports",
+#   security_level: ""
+# )
 
-Chatroom.create!(
-  name: "Viajar com amigos",
-  password: "",
-  status: "private",
-  language: "portuguese",
-  language_level: "medium",
-  topic: "travel",
-  security_level: ""
-)
+# Chatroom.create!(
+#   name: "Viajar com amigos",
+#   password: "",
+#   status: "private",
+#   language: "portuguese",
+#   language_level: "medium",
+#   topic: "travel",
+#   security_level: ""
+# )
 
-Chatroom.create!(
-  name: "Cantare in Napoli",
-  password: "",
-  status: "private",
-  language: "italian",
-  language_level: "advanced",
-  topic: "music",
-  security_level: ""
-)
+# Chatroom.create!(
+#   name: "Cantare in Napoli",
+#   password: "",
+#   status: "private",
+#   language: "italian",
+#   language_level: "advanced",
+#   topic: "music",
+#   security_level: ""
+# )
