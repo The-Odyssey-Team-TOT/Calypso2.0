@@ -32,20 +32,20 @@
     </div>
   </div>
 
-  <div id="wall" class="w-1/4 p-4 border-gray-200">
-    <div class="mb-4">
-     <p><%= @chatroom.name %>'s Wall<p>
+  <div id="wall" class="w-full lg:w-1/4 p-6 bg-gray-800 text-gray-200">
+    <div class="title-radius mb-6">
+      <h2 class="text-2xl font-semibold"><%= @chatroom.name %>'s Wall</h2>
     </div>
-     <% @wall.posts.each do |post| %>
-        <div class="post">
-          <p><%= post.content %></p>
-        </div>
-      <% end %>
-      <%= simple_form_for [@chatroom, @wall, @post] do |form| %>
-      <div class="mb-3">
-        <%= form.input :content, as: :text %>
+    <% @wall.posts.each do |post| %>
+      <div class="post mb-4 p-4 bg-gray-700 rounded-lg shadow-sm">
+        <p class="text-gray-300"><%= post.content %></p>
       </div>
-        <%= form.button :submit, 'Post', class: 'btn btn-secondary' %>
-      <% end %>
+    <% end %>
+    <%= simple_form_for [@chatroom, @wall, @post], html: { class: 'bg-gray-900 p-4 rounded-lg shadow-md' } do |form| %>
+      <div class="mb-4">
+        <%= form.input :content, as: :text, input_html: { class: 'form-input bg-gray-700 text-gray-300 border-gray-600 rounded-lg' }, wrapper_html: { class: 'mb-4' } %>
+      </div>
+      <%= form.button :submit, 'Post', class: 'btn btn-secondary bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg shadow-md' %>
+    <% end %>
   </div>
 </div>

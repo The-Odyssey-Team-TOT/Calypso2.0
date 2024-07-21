@@ -52,13 +52,13 @@
 
 
 # Wall.create!(chatroom_id: Chatroom.first.id)
-Message.destroy_all
-Wall.destroy_all
-Chatroom.destroy_all
+# Message.destroy_all
+# Wall.destroy_all
+# Chatroom.destroy_all
 
-# Chatroom.find_each do |chatroom|
-#   Wall.create!(chatroom_id: chatroom.id)
-# end
+Chatroom.find_each do |chatroom|
+  Wall.create!(chatroom_id: chatroom.id)
+end
 
 # Chatroom.create!(
 #   name: "Human lore",
