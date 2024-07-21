@@ -1,0 +1,14 @@
+<%= simple_form_for @chatroom, html: { class: 'chatroom-form' } do |form| %>
+  <div class="form-inputs">
+    <%= form.input :name, label: 'Chatroom Name', placeholder: 'Enter chatroom name' %>
+    <%= form.input :password, label: 'Password', as: :password, placeholder: 'Enter password' %>
+    <%= form.input :status, label: 'Status', as: :select, collection: ['public', 'private'], include_blank: false %>
+    <%= form.input :language, label: 'Language', as: :select, collection: ['English', 'French', 'Spanish', 'German', 'Other'], include_blank: false %>
+    <%= form.input :language_level, label: 'Language Level', as: :select, collection: ['Beginner', 'Intermediate', 'Advanced'], include_blank: false %>
+    <%= form.input :topic, label: 'Topic', placeholder: 'Enter the topic of the chatroom' %>
+  </div>
+
+  <div class="form-actions">
+    <%= form.button :submit, 'Update Chatroom', class: 'btn btn-primary' %>
+  </div>
+<% end %>
