@@ -1,12 +1,11 @@
 class ChatroomsController < ApplicationController
-
-
   def show
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new
     @chatrooms = Chatroom.all
     if params[:query].present?
-      @chatrooms = @chatrooms.where("name ILIKE ?", "%#{params[:query]}%")
+      sql_subquery = "name ILIKE :query OR topic ILIKE :query OR language ILIKE :query OR language_level ILIKE :query"
+      @chatrooms = @chatrooms.where(sql_subquery, query: "%#{params[:query]}%")
     end
     respond_to do |format|
       format.html
