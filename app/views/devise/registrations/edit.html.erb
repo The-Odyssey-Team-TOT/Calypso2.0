@@ -10,6 +10,22 @@
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
 
+    <%= f.input :nickname,
+                hint: "leave it blank if you don't want to change it",
+                required: false,
+                input_html: { autocomplete: "new-nickname" } %>
+    <%= f.input :description,
+                hint: "leave it blank if you don't want to change it",
+                required: false,
+                input_html: { autocomplete: "new-description" } %>
+    <%= f.input :spoken_language,
+                hint: "leave it blank if you don't want to change it",
+                required: false,
+                input_html: { autocomplete: "new-spoken-language" } %>
+    <%= f.input :learning_language,
+                hint: "leave it blank if you don't want to change it",
+                required: false,
+                input_html: { autocomplete: "new-learning-language" } %>
     <%= f.input :password,
                 hint: "leave it blank if you don't want to change it",
                 required: false,
