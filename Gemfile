@@ -80,4 +80,4 @@ gem "threejs-rails"
 
 
 gem "pg_search"
-gem 'attach', '~> 1.0.1'
+

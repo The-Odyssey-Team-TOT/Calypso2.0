@@ -4,8 +4,7 @@ class ChatroomsController < ApplicationController
     @message = Message.new
     @chatrooms = Chatroom.all
     if params[:query].present?
-      sql_subquery = "name ILIKE :query OR topic ILIKE :query OR language ILIKE :query OR language_level ILIKE :query"
-      @chatrooms = @chatrooms.where(sql_subquery, query: "%#{params[:query]}%")
+      @chatrooms = Chatroom.search_by_name_and_topic_and_language_and_language_level(params[:query])
     end
     respond_to do |format|
       format.html
