@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
+  # resources :invites, controller: 'users/invitations', only: [:new, :create] do
+  # end
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -15,12 +17,18 @@ Rails.application.routes.draw do
   resources :users, only: [:show,:edit, :update]
 
   resources :chatrooms, only: [:show, :new, :create, :edit, :update] do
+    member do
+      get 'invite'
+      post 'send_invite'
+    end
     resources :messages, only: :create do
       resources :notifications, only: [:index, :show, :destroy]
     end
+
     resources :walls, only: :show do
       resources :posts
     end
+
     resources :users, only: [] do
       member do
         patch :ban

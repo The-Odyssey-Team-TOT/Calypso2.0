@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_one_attached :photo
-  has_many :rooms
+  has_many :chatrooms
   has_many :posts, through: :wall
   has_many :messages
 
@@ -9,6 +9,6 @@ class User < ApplicationRecord
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end

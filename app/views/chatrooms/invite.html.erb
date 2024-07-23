@@ -1,0 +1,12 @@
+<h2>Invite a user to <%= @chatroom.name %></h2>
+
+<%= form_with url: send_invite_chatroom_path(@chatroom), method: :post do %>
+  <div class="field">
+    <%= label_tag :email, 'Email' %>
+    <%= email_field_tag :email %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag "Send Invitation" %>
+  </div>
+<% end %>
