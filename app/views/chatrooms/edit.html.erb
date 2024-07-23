@@ -4,7 +4,7 @@
     <%= form.input :password, label: 'Password', as: :password, placeholder: 'Enter password' %>
     <%= form.input :status, label: 'Status', as: :select, collection: ['public', 'private'], include_blank: false %>
     <%= form.input :language, label: 'Language', as: :select, collection: ['English', 'French', 'Spanish', 'German', 'Other'], include_blank: false %>
-    <%= form.input :language_level, label: 'Language Level', as: :select, collection: ['Beginner', 'Intermediate', 'Advanced'], include_blank: false %>
+    <%= form.input :language_level, label: 'Language Level', as: :select, collection: ['beginner', 'medium', 'advanced', 'fluent'], include_blank: false %>
     <%= form.input :topic, label: 'Topic', placeholder: 'Enter the topic of the chatroom' %>
   </div>
 

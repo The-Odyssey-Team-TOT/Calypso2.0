@@ -13,6 +13,7 @@ class Chatroom < ApplicationRecord
   has_many :posts, through: :wall
   has_one_attached :photo
   has_one :wall, dependent: :destroy
+  has_many :invites, as: :invitable
   LANGUAGE_LEVEL = ["beginner", "medium", "advanced", "fluent"]
   validates :name, :status, :language, :language_level, presence: true
   validates :language_level, inclusion: { in: LANGUAGE_LEVEL }
