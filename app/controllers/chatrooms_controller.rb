@@ -1,12 +1,10 @@
 class ChatroomsController < ApplicationController
-
-
   def show
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new
     @chatrooms = Chatroom.all
     if params[:query].present?
-      @chatrooms = @chatrooms.where("name ILIKE ?", "%#{params[:query]}%")
+      @chatrooms = Chatroom.search_by_name_and_topic_and_language_and_language_level(params[:query])
     end
     respond_to do |format|
       format.html
