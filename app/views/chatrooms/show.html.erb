@@ -45,7 +45,9 @@
         <% @wall.posts.each do |post| %>
           <div class="card mask-custom">
             <p class="text-gray-300"><%= post.content %></p>
-            <%= cl_image_tag post.file.key %>
+            <% if post.file.attached? %>
+              <%= cl_image_tag post.file.key %>
+            <% end %>
           </div>
         <% end %>
           <%= simple_form_for [@chatroom, @wall, @post], html: { class: 'card mask-custom' } do |form| %>

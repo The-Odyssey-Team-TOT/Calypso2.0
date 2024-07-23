@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :chatrooms
   has_many :posts, through: :wall
   has_many :messages
+  has_many :notifications, as: :recipient
 
   validates :nickname, :spoken_language, :learning_language, :description, presence: true
   validates :description, length: {minimum: 15, maximum: 300}
