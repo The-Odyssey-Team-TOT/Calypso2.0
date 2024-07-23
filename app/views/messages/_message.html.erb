@@ -1,7 +1,15 @@
-<div id="message-<%= message.id %>">
-  <small>
-    <strong><%= message.user.nickname %></strong>
-    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-  </small>
-  <p><%= message.content %></p>
-</div>
+
+  <li class="d-flex flex-row-reverse mb-2">
+    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp" alt="avatar"
+      class="rounded-circle d-flex align-self-start mx-2 shadow-1-strong" width="30">
+    <div class="card mask-custom">
+      <div class="card-mask-custom d-flex justify-content-between px-3 py-2"
+        style="border-bottom: 1px solid rgba(255,255,255,.3);">
+        <p class="fw-light fs-6 text-light mb-0 pe-4 text-capitalize"><%= message.user.nickname %></p>
+        <p class="text-light small mb-0 pt-0.5"><%= message.created_at.strftime("%l:%M %p") %></p>
+      </div>
+      <div class="card-body">
+        <p class="mb-0 text-light"><%= message.content %></p>
+      </div>
+    </div>
+  </li>

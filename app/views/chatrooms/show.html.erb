@@ -1,44 +1,64 @@
-<div class="chat-show">
-  <div id="chat-nav" class="w-1/4 p-4">
-    <div class="mb-4 bg-black w-full px-3 py-2 rounded-lg focus:outline-none focus:ring focus:ring-blue-200">
-      <%= form_with url: chatroom_path(@chatroom), method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-            params[:query],
-            class: "form-control bg-black text-white",
-            placeholder: "Type a chatroom's name"
-        %>
-      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
-    <% end %>
-    </div>
-    <%= render 'rooms' %>
-  </div>
+<section class="gradient-custom">
 
-  <div class="flex-1 text-white flex flex-col">
-      <div class="text-center background-gray">
-        <h1 class="text-2xl font-bold"><%= @chatroom.name %></h1>
-      </div>
-      <div id="room-nav" class="flex text-center justify-between p-4 bg-slate-500">
-        <h5><%= @chatroom.topic %></h5>
-          <h6 class="me-5"><%= @chatroom.language %> - <%=@chatroom.language_level %></h6>
-        <%= link_to "Edit your room",  edit_chatroom_path(@chatroom)%>
-      </div>
-    <div id="msg-container" class="flex-1 p-4 overflow-y-auto" data-chatroom-id="<%= @chatroom.id %>">
-      <% @chatroom.messages.each do |message| %>
-        <%= render "messages/message", message: message %>
-      <% end %>
-    </div>
-    <div class="p-4 bg-black">
-      <%= form_with(model: [ @chatroom, @chatroom.messages.build ], local: false) do |form| %>
-      <div class="flex items-center">
-        <%= form.text_field :content, placeholder: "Write a message...", class: "flex-1 px-3 py-2 border border-gray-100 rounded-l focus:outline-none focus:ring-blue-200", id: "message_content" %>
-        <%= form.submit 'Send', id: "send-btn", class: "h-14 l-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
-      </div>
-    <% end %>
-    <%= link_to 'Invite a friend', new_user_invitation_path(chatroom: @chatroom), class: 'btn btn-primary' %>
-    </div>
-  </div>
+  <div class="container py-3">
 
-  <div id="wall" class="w-full lg:w-1/4 p-6 bg-gray-800 text-gray-200">
+    <div class="row">
+
+      <div class="col mb-4 mb-md-0">
+          <div class="card mask-custom">
+        <h5 class="mt-3 mb-1 ps-4 pb-3 text-center text-white text-capitalize" style="border-bottom: 1px solid rgba(255,255,255,.3) !important; ">Rooms</h5>
+            <%= render 'rooms' %>
+          </div>
+      </div>
+
+
+
+      <div class="col-6">
+        <div class="card mask-custom" id="chatroom-title-card">
+          <div class="card-mask-custom d-flex justify-content-flex-start p-3"
+          style="border-bottom: 1px solid rgba(255,255,255,.3); border-radius: 2em">
+            <p class="fs-3 mb-0 pe-4 text-uppercase"><%= @chatroom.name %></p>
+            <p class="mb-0 me-3 pt-1 px-3 pt-2 rounded-pill bg-yellow-400 bg-opacity-75 text-capitalize"><%= @chatroom.language %></p>
+            <p class="mb-0 me-3 pt-1 px-3 pt-2 rounded-pill bg-purple-500 bg-opacity-75 text-capitalize"><%=@chatroom.topic %></p>
+          </div>
+        </div>
+        <br>
+        <ul class="list-unstyled text-white">
+          <% @chatroom.messages.each do |message| %>
+            <%= render 'messages/message', message: message %>
+          <% end %>
+        </ul>
+            <div>
+              <%= form_with(model: [ @chatroom, @chatroom.messages.build ], local: false) do |form| %>
+                <div class="form-outline form-white">
+                  <%= form.text_field :content, placeholder: "Write a message...", class: "flex-1 px-3 py-2 border border-gray-100 rounded-5" %>
+                  <%= form.submit 'Send', class: "btn btn-outline-secondary rounded-5" %>
+                </div>
+              <% end %>
+            </div>
+      </div>
+
+      <%= link_to 'Invite a friend', new_user_invitation_path(chatroom: @chatroom), class: 'btn btn-primary' %>
+
+      <div class="col card mask-custom">
+        <h5 class="mt-3 mb-1 ps-4 pb-3 text-center text-white text-capitalize" style="border-bottom: 1px solid rgba(255,255,255,.3) !important;"><%= @chatroom.name %>'s Wall</h5>
+        <% @wall.posts.each do |post| %>
+          <div class="card mask-custom">
+            <p class="text-gray-300"><%= post.content %></p>
+            <%= cl_image_tag post.file.key %>
+          </div>
+        <% end %>
+          <%= simple_form_for [@chatroom, @wall, @post], html: { class: 'card mask-custom' } do |form| %>
+          <div>
+            <%= form.input :content, as: :text, label: false, input_html: { class: 'card mask-custom' } %>
+          </div>
+          <div class="d-flex justify-content-center">
+          <%= form.button :submit, 'Post', class: 'btn btn-outline-secondary text-light border-1 border-light rounded-pill btn-sm', style: 'width: 80px' %>
+          </div>
+        <% end %>
+      </div>
+
+    <div id="wall" class="w-full lg:w-1/4 p-6 bg-gray-800 text-gray-200">
     <div class="title-radius mb-6">
       <h2 class="text-2xl font-semibold"><%= @chatroom.name %>'s Wall</h2>
     </div>
@@ -51,14 +71,11 @@
       </div>
     <% end %>
     <%= simple_form_for [@chatroom, @wall, @post], html: { class: 'bg-gray-900 p-4 rounded-lg shadow-md' } do |form| %>
-    <div class="mb-4">
-      <%= form.label :content, class: 'block text-gray-300' %>
-      <%= form.text_area :content, class: 'form-input bg-gray-700 text-gray-300 border-gray-600 rounded-lg w-full', rows: 4 %>
-        <div class="mt-2 flex items-center justify-between">
-          <%= form.input :file, as: :file, class: 'form-input bg-gray-700 text-gray-300 border-gray-600 rounded-lg' %>
-        </div>
-    </div>
+      <div class="mb-4">
+        <%= form.input :content, as: :text, input_html: { class: 'form-input bg-gray-700 text-gray-300 border-gray-600 rounded-lg' }, wrapper_html: { class: 'mb-4' } %>
+      </div>
       <%= form.button :submit, 'Post', class: 'btn btn-secondary bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg shadow-md' %>
     <% end %>
   </div>
 </div>
+</section>
