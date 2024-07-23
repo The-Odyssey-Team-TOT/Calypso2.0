@@ -1,49 +1,49 @@
 <section class="gradient-custom">
-  <div class="container py-5">
+
+  <div class="container py-3">
 
     <div class="row">
-      <div class="col-md-6 col-lg-5 col-xl-5 mb-4 mb-md-0">
-        <h5 class="font-weight-bold mb-3 text-center text-white">Member</h5>
-        <div class="card mask-custom">
-          <%= render 'rooms' %>
-        </div>
+
+      <div class="col mb-4 mb-md-0">
+          <div class="card mask-custom">
+        <h5 class="mt-3 mb-1 ps-4 pb-3 text-center text-white text-capitalize" style="border-bottom: 1px solid rgba(255,255,255,.3) !important; ">Rooms</h5>
+            <%= render 'rooms' %>
+          </div>
       </div>
 
-      <div class="col-md-6 col-lg-7 col-xl-7">
-      <br>
-      <div class="card mask-custom" id="chatroom-title-card">
-        <div class="card-header d-flex justify-content-between p-3"
-        style="border-bottom: 1px solid rgba(255,255,255,.3);">
-          <p class="fw-bold mb-0"><%= @chatroom.name %></p>
-          <p class="text-light small mb-0"><%= @chatroom.topic %></p>
-          <p class="text-light small mb-0"><%= @chatroom.language %></p>
+
+
+      <div class="col-6">
+        <div class="card mask-custom" id="chatroom-title-card">
+          <div class="card-mask-custom d-flex justify-content-flex-start p-3"
+          style="border-bottom: 1px solid rgba(255,255,255,.3); border-radius: 2em">
+            <p class="fs-3 mb-0 pe-4 text-uppercase"><%= @chatroom.name %></p>
+            <p class="mb-0 me-3 pt-1 px-3 pt-2 rounded-pill bg-yellow-400 bg-opacity-75 text-capitalize"><%= @chatroom.language %></p>
+            <p class="mb-0 me-3 pt-1 px-3 pt-2 rounded-pill bg-purple-500 bg-opacity-75 text-capitalize"><%=@chatroom.topic %></p>
+          </div>
         </div>
-      </div>
-      <br>
+        <br>
         <ul class="list-unstyled text-white">
           <% @chatroom.messages.each do |message| %>
             <%= render 'messages/message', message: message %>
           <% end %>
-          <li class="mb-3">
+        </ul>
             <div>
               <%= form_with(model: [ @chatroom, @chatroom.messages.build ], local: false) do |form| %>
                 <div class="form-outline form-white">
-                  <%= form.text_field :content, placeholder: "Write a message...", class: "flex-1 px-3 py-2 border border-gray-100 rounded-l focus:outline-none focus:ring-blue-200", id: "message_content" %>
+                  <%= form.text_field :content, placeholder: "Write a message...", class: "flex-1 px-3 py-2 border border-gray-100 rounded-5" %>
                   <%= form.submit 'Send', class: "btn btn-light btn-lg btn-rounded float-end" %>
                 </div>
               <% end %>
             </div>
-            <%# <div data-mdb-input-init class="form-outline form-white">
-              <textarea class="form-control" id="textAreaExample3" rows="4"></textarea>
-              <label class="form-label" for="textAreaExample3">Message</label>
-            </div>
-          </li>
-          <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-light btn-lg btn-rounded float-end">Send</button> %>
-        </ul>
+      </div>
 
+      <div class="col card mask-custom">
+        <h5 class="mt-3 mb-1 ps-4 pb-3 text-center text-white text-capitalize" style="border-bottom: 1px solid rgba(255,255,255,.3) !important;"><%= @chatroom.name %>'s Wall</h5>
       </div>
 
     </div>
 
   </div>
+
 </section>
