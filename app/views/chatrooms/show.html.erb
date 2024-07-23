@@ -29,11 +29,12 @@
     </div>
     <div class="p-4 bg-black">
       <%= form_with(model: [ @chatroom, @chatroom.messages.build ], local: false) do |form| %>
-  <div class="flex items-center">
-    <%= form.text_field :content, placeholder: "Write a message...", class: "flex-1 px-3 py-2 border border-gray-100 rounded-l focus:outline-none focus:ring-blue-200", id: "message_content" %>
-    <%= form.submit 'Send', id: "send-btn", class: "h-14 l-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
-  </div>
+      <div class="flex items-center">
+        <%= form.text_field :content, placeholder: "Write a message...", class: "flex-1 px-3 py-2 border border-gray-100 rounded-l focus:outline-none focus:ring-blue-200", id: "message_content" %>
+        <%= form.submit 'Send', id: "send-btn", class: "h-14 l-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+      </div>
     <% end %>
+    <%= link_to 'Invite a friend', new_user_invitation_path(chatroom: @chatroom), class: 'btn btn-primary' %>
     </div>
   </div>
 
@@ -44,7 +45,9 @@
     <% @wall.posts.each do |post| %>
       <div class="post mb-4 p-4 bg-gray-700 rounded-lg shadow-sm">
         <p class="text-gray-300"><%= post.content %></p>
-        <%= cl_image_tag post.file.key %>
+         <% if post.file.attached? %>
+          <%= cl_image_tag post.file.key, class: 'post-image' %>
+         <% end %>
       </div>
     <% end %>
     <%= simple_form_for [@chatroom, @wall, @post], html: { class: 'bg-gray-900 p-4 rounded-lg shadow-md' } do |form| %>

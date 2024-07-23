@@ -81,3 +81,4 @@ gem "threejs-rails"
 
 gem "pg_search"
 
+gem 'devise_invitable'
