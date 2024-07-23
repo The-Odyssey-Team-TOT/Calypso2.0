@@ -1,5 +1,5 @@
 class ChatroomsController < ApplicationController
-  before_action :set_chatroom
+  before_action :set_chatroom, except: [:new]
 
   def show
     @chatroom = Chatroom.find(params[:id])
