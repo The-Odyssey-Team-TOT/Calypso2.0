@@ -2,53 +2,50 @@
 
   <div class="container py-5 px-5">
 
-      <div class="row">
+      <div class="row d-flex justify-content-center">
 
-        <div class="card mask-custom mb-5">
+        <div class="card mask-custom mb-5 user-card">
 
-          <%= link_to "", chatroom_path(@user, @chatroom), class: 'mt-3 me-1 px-3 py-3 rounded-circle bg-gray-200 bg-opacity-50 text-decoration-none text-white', style: 'width: 50px; height:50px;' %>
+          <%= link_to "", chatroom_path(@user, @chatroom), class: 'mt-2 me-1 px-3 py-3 rounded-circle bg-gray-200 bg-opacity-50 text-decoration-none text-white', style: 'width: 30px; height:30px;' %>
 
-          <h1 class="fs-1 text-center text-light mb-4">Your profile</h1>
+          <h1 class="user-card-title text-center text-light mb-4">Your profile</h1>
 
           <div class="d-flex justify-content-between">
 
             <div class="col-5 ps-5 pt-3 pb-5 pe-3">
               <div class="flex-columns">
-                <div style="text-align: center;">
+                <div class="me-5" style="text-align: center;">
                   <img src="https://media.licdn.com/dms/image/C4E03AQERbi3ilMhlZA/profile-displayphoto-shrink_800_800/0/1650007834660?e=1727308800&v=beta&t=cbrYcSnxgka40XfefzXr01t-VzUm7oHfcWRBAz3HwgE" alt="avatar"
-                  class="rounded-circle shadow-1-strong" style="margin: auto;" width="200">
+                  class="rounded-circle shadow-1-strong" style="margin: auto;" width="150">
                   <p class="text-light mt-3"><strong><%= @user.nickname %></strong></p>
-                  <p class="text-light"><%= @user.description %></p>
+                  <p class="text-light bio-description"><%= @user.description %></p>
                   <br>
-                  <%= link_to "Edit", edit_user_path(@user), class: 'mt-3 me-1 px-3 py-2 rounded-pill bg-yellow-400 bg-opacity-75 text-decoration-none text-white'%>
-                  <br>
-                  <br>
-                  <br>
-                  <%= link_to "Delete", user_path(@user), class: 'mt-3 me-1 px-3 py-2 rounded-pill bg-red-400 bg-opacity-75 text-decoration-none text-white', data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+                  <%= link_to "Edit", edit_user_path(@user), class: 'button-small ms-3 me-1 mt-3 px-3 py-2' %>
+                  <%= link_to "Delete", user_path(@user), class: 'button-small mt-3 ms-1 px-3 py-2 me-2', data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
                 </div>
               </div>
             </div>
 
-            <div class="col-5 ps-5 pt-3 pb-5 pe-3">
+            <div class="col-5 ps-3 pt-2 pb-5 pe-3">
               <div class="flex-columns">
 
                 <div>
-                  <p class="text-light fs-4">Informations</p>
+                  <p class="text-light" style="font-size: 20px;">Informations</p>
                   <hr class="text-light">
                 </div>
 
                 <div class="d-flex flex-start justify-content-between">
                   <div>
-                    <p class="text-light"><strong>Email</strong></p>
-                    <p class="text-light"><%= @user.email %></p>
-                    <p class="text-light"><strong>Spoken languages</strong></p>
-                    <p class="text-light"><%= @user.spoken_language %></p>
+                    <p class="text-light fw-bold user-infos-label">Email</p>
+                    <p class="text-light user-infos-text"><%= @user.email %></p>
+                    <p class="text-light fw-bold user-infos-label ">Spoken languages</p>
+                    <p class="text-light user-infos-text"><%= @user.spoken_language %></p>
                   </div>
                   <div>
-                    <p class="text-light"><strong>Password</strong></p>
-                    <p class="text-light">**********</p>
-                    <p class="text-light"><strong>Learning languages</strong></p>
-                    <p class="text-light"><%= @user.learning_language %></p>
+                    <p class="text-light fw-bold user-infos-label">Password</p>
+                    <p class="text-light user-infos-text">**********</p>
+                    <p class="text-light fw-bold user-infos-label"><strong>Learning languages</strong></p>
+                    <p class="text-light user-infos-text"><%= @user.learning_language %></p>
                   </div>
                 </div>
 
@@ -56,20 +53,20 @@
                 <br>
 
                 <div>
-                  <p class="text-light fs-4">Recent activity</p>
+                  <p class="text-light" style="font-size: 20px;">Recent activity</p>
                   <hr class="text-light">
                 </div>
 
                 <div class="d-flex flex-start justify-content-between">
                   <div>
-                    <p class="text-light"><strong>Messages</strong></p>
-                    <div class="border-1 border-light rounded-5" style="width:200px;">
-                    <p class="text-light mt-2 ms-2"><strong><%= @user.messages.last.chatroom.name %></strong></p>
-                    <hr class="text-light">
-                    <p class="text-light ms-2"><%= @user.messages.last.content %></p>
+                    <p class="text-light fw-bold user-infos-label">Messages</p>
+                    <div class="border-1 border-light rounded-5" style="width:150px;">
+                    <p class="text-light m-1 ms-2 fw-bold user-infos-label"><%= @user.messages.last.chatroom.name %></p>
+                    <hr class="text-light m-1">
+                    <p class="text-light ms-2 user-infos-text"><%= @user.messages.last.content %></p>
                     </div>
                   </div>
-                
+
                 </div>
 
               </div>

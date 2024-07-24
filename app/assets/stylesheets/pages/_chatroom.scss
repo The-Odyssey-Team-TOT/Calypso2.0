@@ -45,7 +45,7 @@ li {
 }
 
 #rooms-container {
-  height: 660px;
+  height: 669px;
   overflow-y: auto;
 }
 
@@ -58,7 +58,7 @@ li {
 
 #wall_container {
   float:right;
-  height: 660px;
+  height: 668px;
   overflow-y: auto;
 }
 
@@ -97,4 +97,91 @@ li {
   bottom: 0;
   margin-bottom: 30px;
   width: 630px
+}
+
+.user-card {
+  height: 570px;
+  width: 900px;
+  position: center;
+}
+
+.user-card-title {
+  font-size: 30px;
+}
+
+.bio-description {
+  font-size: 13px;
+}
+
+
+.user-infos-label {
+  font-size: 13px;
+}
+
+.user-infos-text {
+  font-size: 12px;
+}
+
+.button-small {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: white;
+  border-radius: 20px;
+  border-width: 1px;
+  text-decoration: none;
+  font-size: 11px;
+  width: 20px;
+  height: 10px;
+}
+
+.button-small:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.button-medium {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: white;
+  border-radius: 20px;
+  border-width: 1px;
+  text-decoration: none;
+  font-size: 15px;
+  width: 20px;
+  height: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.button-medium:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.button-big {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: white;
+  border-radius: 20px;
+  border-width: 1px;
+  text-decoration: none;
+  font-size: 15px;
+  width: 100px;
+  height: 40px;
+  margin-right: 30px;
+  font-size: 15px;
+}
+
+.button-big:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.button-link-style {
+  font-size: 15px;
+  padding-top: 9px;
+  color: white;
+}
+
+.button-link-style:hover {
+  color: rgba(255, 255, 255, 0.3);
 }
