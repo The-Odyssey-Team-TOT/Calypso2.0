@@ -1,5 +1,5 @@
 class ChatroomsController < ApplicationController
-  before_action :set_chatroom, except: [:new]
+  before_action :set_chatroom, except: [:new, :whisper]
 
   def show
     @notification = Notification.new
@@ -38,6 +38,8 @@ class ChatroomsController < ApplicationController
         render :edit
       end
   end
+
+
 
   def create
     @chatroom = Chatroom.new(chatroom_params)
@@ -79,11 +81,34 @@ class ChatroomsController < ApplicationController
     @chatroom.save!
   end
 
+  def whisper
+    @message = Message.new
+    @chatroom = Chatroom.find(params[:chatroom_id])
+    @user = User.find(params[:id])
+    if @user && current_user
+      @chatroom_whisper = Chatroom.new(
+        name: @chatroom.name,
+        status: @chatroom.status,
+        language: @chatroom.language,
+        language_level: @chatroom.language_level,
+        user_id: current_user
+        )
+      if @chatroom_whisper.save
+        @chatroom_whisper.chatroom_memberships.create!(user: @user)
+        @chatroom_whisper.chatroom_memberships.create!(user: current_user)
+      # else
+      #   alert: "The whisper room could not be created"
+      redirect_to chatroom_path(@chatroom_whisper)
+      end
+    end
+  end
+
   private
 
   def set_chatroom
     @chatroom = Chatroom.find(params[:id])
   end
+
 
   def wall_params
     params.require(:wall).permit(:chatroom_id)
