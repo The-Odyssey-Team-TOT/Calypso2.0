@@ -1,10 +1,11 @@
 class ChatroomsController < ApplicationController
-  before_action :set_chatroom, except: [:new, :whisper]
+  before_action :set_chatroom, except: [:new, :create, :whisper]
 
   def show
     @notification = Notification.new
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new
+    @users = @chatroom.users
     # if @chatroom.status == "private"
     #   current_user.chatroom.password == @chatroom.password
     # end
@@ -103,6 +104,11 @@ class ChatroomsController < ApplicationController
     end
   end
 
+  def show_users
+    @chatroom
+    @users = @chatroom.users
+  end
+
   private
 
   def set_chatroom
@@ -115,6 +121,6 @@ class ChatroomsController < ApplicationController
   end
 
   def chatroom_params
-    params.require(:chatroom).permit(:name, :password, :status, :language, :language_level, :user_id)
+    params.require(:chatroom).permit(:name, :password, :status, :language, :language_level, :user_id, :topic)
   end
 end
