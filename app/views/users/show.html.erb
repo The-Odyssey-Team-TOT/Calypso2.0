@@ -72,7 +72,11 @@
                   <div>
                     <p class="text-light"><strong>Posts</strong></p>
                     <div class="border-1 border-light rounded-5" >
-                    <p class="text-light m-2"><%= @user.posts.last.content%></p>
+                      <% if @user.posts.nil? %>
+                        <%= @user.nickname %><p>Didn't post anything yet</p>
+                      <% else %>
+                      <p class="text-light m-2"><%= @user.posts.last.content%></p>
+                    <% end %>
                     </div>
                   </div>
                 </div>
