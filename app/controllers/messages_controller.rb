@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
     @message.user = current_user
 
     if @message.save
-      ChatroomChannel.broadcast_to @chatroom, message: render_message(@message)
+      ChatroomChannel.broadcast_to @chatroom, message: render_message(@message), sender_id: @message.user.id
       respond_to do |format|
         format.js { render 'messages/create' } # Répondre avec un format JavaScript
         format.html { redirect_to chatroom_path(@chatroom) }

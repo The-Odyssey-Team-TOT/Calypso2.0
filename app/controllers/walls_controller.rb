@@ -4,7 +4,6 @@ class WallsController < ApplicationController
 
   def create
     @wall = Wall.new(wall_params)
-    
   end
 
   private
