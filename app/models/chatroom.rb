@@ -9,7 +9,8 @@ class Chatroom < ApplicationRecord
                   }
 
   has_many :messages
-  has_many :users
+  has_many :chatroom_memberships
+  has_many :users, through: :chatroom_memberships
   has_many :posts, through: :wall
   has_one_attached :photo
   has_one :wall, dependent: :destroy
