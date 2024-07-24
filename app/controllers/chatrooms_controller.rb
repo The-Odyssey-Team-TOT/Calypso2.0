@@ -2,6 +2,7 @@ class ChatroomsController < ApplicationController
   before_action :set_chatroom
 
   def show
+    @notification = Notification.new
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new
     # if @chatroom.status == "private"
