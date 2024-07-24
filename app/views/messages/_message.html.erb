@@ -6,7 +6,12 @@
   <div class="card mask-custom">
     <div class="card-mask-custom d-flex justify-content-between px-3 py-2"
       style="border-bottom: 1px solid rgba(255,255,255,.3);">
-      <p class="fw-light fs-6 text-gray-300 mb-0 pe-4 text-capitalize"><%= message.user.nickname %></p>
+      <p class="fw-light fs-6 text-gray-300 mb-0 pe-4 text-capitalize">
+        <%= message.user.nickname %>
+        <%= button_to whisper_chatroom_user_path(message.chatroom, message.user), method: :post do %>
+          <i class="fa-solid fa-message me-2"></i>
+        <% end %>
+      </p>
       <p class="text-gray-300 small mb-0 pt-0.5"><%= message.created_at.strftime("%l:%M %p") %></p>
     </div>
     <div class="card-body">

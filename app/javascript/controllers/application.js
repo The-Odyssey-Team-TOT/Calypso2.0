@@ -1,5 +1,6 @@
-import { Application } from "@hotwired/stimulus"
+import { Application } from "@hotwired/stimulus";
 import "./controllers";
+import "./channels/notifications_channel";
 
 const application = Application.start()
 

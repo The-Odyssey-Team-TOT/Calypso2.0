@@ -14,9 +14,15 @@ Rails.application.routes.draw do
 
   # resources :chatrooms, except: [:show, :index]
 
-  resources :users, only: [:show,:edit, :update]
+  resources :users, only: [:show, :edit, :update]
 
   resources :chatrooms, only: [:show, :new, :create, :edit, :update] do
+    resources :users, only: [] do
+      member do
+        post "whisper", to: "chatrooms#whisper"
+        get "show_users", to: "chatrooms#show_user"
+      end
+    end
     member do
       get 'invite'
       post 'send_invite'
@@ -30,10 +36,6 @@ Rails.application.routes.draw do
     end
 
     resources :users, only: [] do
-      member do
-        patch :ban
-        patch :admin
-      end
     end
   end
 end
