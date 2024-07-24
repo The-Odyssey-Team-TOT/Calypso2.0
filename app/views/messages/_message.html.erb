@@ -6,7 +6,7 @@
       style="border-bottom: 1px solid rgba(255,255,255,.3);">
       <p class="fw-light fs-6 text-gray-300 mb-0 pe-4 text-capitalize">
         <%= message.user.nickname %>
-        <%= button_to whisper_chatroom_user_path(message.chatroom, message.user), method: :post do %>
+        <%= button_to whisper_chatroom_user_path(message.chatroom, message.user), data: { turbo_method: :post } do %>
           <i class="fa-solid fa-message me-2"></i>
         <% end %>
       </p>

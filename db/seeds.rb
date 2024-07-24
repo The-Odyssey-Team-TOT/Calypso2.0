@@ -56,9 +56,6 @@
 # Wall.destroy_all
 # Chatroom.destroy_all
 
-Chatroom.find_each do |chatroom|
-  Wall.create!(chatroom_id: chatroom.id)
-end
 
 # Chatroom.create!(
 #   name: "Human lore",
@@ -109,3 +106,7 @@ end
 #   topic: "music",
 #   security_level: ""
 # )
+
+# Chatroom.find_each do |chatroom|
+#   Wall.create!(chatroom_id: chatroom.id)
+# end

@@ -3,7 +3,7 @@ class NotificationRelayJob < ApplicationJob
 
   def perform(notification)
     html = ApplicationController.render(
-      partial: "notifications/#{notification.notifiable_type.underscore.pluralize}/#{notification.action}",
+      partial: "notifications/notification",
       locals: { notification: notification },
       formats: [:html]
     )
