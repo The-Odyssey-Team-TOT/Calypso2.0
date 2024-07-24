@@ -7,7 +7,7 @@ class MessagesController < ApplicationController
     @notification = Notification.new(message_id: @message.id)
 
     if @message.save
-      ChatroomChannel.broadcast_to @chatroom, message: render_message(@message)
+      ChatroomChannel.broadcast_to @chatroom, message: render_message(@message), sender_id: @message.user.id
       respond_to do |format|
         format.js { render 'messages/create' }
         format.html { redirect_to chatroom_path(@chatroom) }
