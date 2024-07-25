@@ -6,25 +6,23 @@
   <div class="container" style="padding-top: 150px;">
     <div class="row">
 
-      <div class="col-6">
+      <div class="col-5">
         <div class="text-white flex items-center justify-center">
-          <div class="" style="padding-right: 75px;">
-            <h1 style="font-size: 60px;">Calypso</h1>
-            <p class="" style="font-size: 17px; padding-left: 8px;">A new way to learn languages</p>
-            <br>
-            <br>
+          <div class="" style="padding-right: 75px; margin-top: 30px;">
+            <h1 style="font-size: 75px;">Calypso</h1>
+            <p class="" style="font-size: 24px; padding-left: 8px; margin-bottom: 20px;">A new way to learn languages</p>
             <br>
             <div class="">
-              <%= link_to 'Create', new_chatroom_path, class: 'button-medium', style:'margin-left: 20px;' %>
+              <%= link_to 'Create', new_chatroom_path, class: 'button-medium', style:'margin-left: 5px;' %>
               <%= link_to 'Join', chatroom_path(Chatroom.first), class: 'button-medium', style:'margin-left: 50px;'%>
             </div>
           </div>
         </div>
       </div>
 
-      <%# <div class="col-6"> %>
-       <%# <%= cl_image_tag 'people-talk.png', style:'width: 200px;' %>
-      <%# </div> %>
+      <div class="col-7">
+       <%= image_tag 'people-talk4.png', style:'opacity: 50%;' %>
+      </div>
     </div>
   </div>
 </section>

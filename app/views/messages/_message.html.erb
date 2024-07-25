@@ -4,18 +4,19 @@
     class="rounded-circle d-flex align-self-start mx-2 shadow-1-strong" width="30">
   <% end %>
   <div class="card mask-custom">
-    <div class="card-mask-custom d-flex justify-content-between px-3 py-2"
+    <div class="card-mask-custom d-flex justify-content-between px-3 pt-2 pb-1"
       style="border-bottom: 1px solid rgba(255,255,255,.3);">
-      <p class="fw-light fs-6 text-gray-300 mb-0 pe-4 text-capitalize">
+      <p class="fw-light text-gray-300 text-capitalize" style="font-size: 14px; padding-right: 5px; padding-top: 2px; margin-bottom: 0px;">
         <%= message.user.nickname %>
+      <p class="text-gray-300" style="margin-bottom: 0px; padding-bottom: 0px; padding-right: 10px;"> | </p>
         <%= button_to whisper_chatroom_user_path(message.chatroom, message.user), method: :post do %>
-          <i class="fa-solid fa-message me-2"></i>
+          <i class="fa-regular fa-comments text-gray-300" style="width: 15px; padding-right: 90px;"></i>
         <% end %>
       </p>
-      <p class="text-gray-300 small mb-0 pt-0.5"><%= message.created_at.strftime("%l:%M %p") %></p>
+      <p class="text-gray-300 small mb-0 pt-0.5" style="font-size: 10px;"><%= message.created_at.strftime("%l:%M %p") %></p>
     </div>
-    <div class="card-body">
-      <p class="mb-0 text-gray-300"><%= message.content %></p>
+    <div class="card-body" style="padding-top: 5px;">
+      <p class="mb-0 text-gray-300" style="font-size: 12px;"><%= message.content %></p>
     </div>
   </div>
 </li>
