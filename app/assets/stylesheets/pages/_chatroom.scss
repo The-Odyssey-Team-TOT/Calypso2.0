@@ -41,7 +41,6 @@ li {
   float:right;
   height: 585px;
   width: 640px;
-  overflow-y: auto;
 }
 
 #rooms-container {
@@ -186,4 +185,11 @@ li {
 
 .button-link-style:hover {
   color: rgba(255, 255, 255, 0.3);
+}
+
+#message-list-div {
+  height: 500px;
+  overflow-y: auto;
+  margin-top: -15px;
+
 }

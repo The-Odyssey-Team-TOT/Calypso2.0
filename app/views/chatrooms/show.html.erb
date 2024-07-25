@@ -1,6 +1,6 @@
 <section class="gradient-custom">
-<div id="notification" data-notification-target="notif">
-</div>
+  <div id="notification" data-notification-target="notif">
+
   <div class="container py-3">
 
     <div class="row">
@@ -24,7 +24,10 @@
         </div>
         <%= render 'rooms' %>
       </div>
-      <div class="col-6" data-controller="chatroom" data-chatroom-chatroom-id-value="<%= @chatroom.id%>">
+
+
+
+      <div class="col-6" data-controller="chatroom" data-chatroom-chatroom-id-value="<%= @chatroom.id %>">
         <div class="card mask-custom" id="chatroom-title-card">
           <div class="card-mask-custom d-flex justify-content-flex-start pt-3 ps-3 pb-2 position-relative"
           style="border-bottom: 1px solid rgba(255,255,255,.3); border-radius: 2em">
@@ -39,31 +42,10 @@
           </div>
         </div>
 
-        <div id="messages-container" class="p-2" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>" data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
+        <div id="messages-container" class="ps-2 pe-2 pb-2" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>" data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
           <br>
-<<<<<<< HEAD
-          <ul id="messages-list" class="list-unstyled text-white" data-chatroom-target="messages">
-            <% @chatroom.messages.each do |message| %>
-              <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
-                <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
-                   <%= render 'messages/message', message: message %>
-                </div>
-              </div>
-            <% end %>
-          </ul>
-<<<<<<< HEAD
-              <div>
-                <%= form_with(model: [ @chatroom, @chatroom.messages.build ], data: { action: "turbo:submit-end->chatroom#resetForm" }) do |form| %>
-                  <div id="messages-input" class="form-outline form-white d-flex justify-content-center">
-                    <%= form.text_field :content, placeholder: "Write a message...", class: "px-3 py-2 text-light", style: 'width: 85%; background: rgba(24,24,16, .2); border-radius: 2em; backdrop-filter: blur(15px); border: 2px solid rgba(255, 255, 255, 0.05); width:80%;' %>
-                    <%= form.submit 'Send', class: "btn btn-outline-secondary bg-white bg-opacity-25 border-0 ms-2 text-light", style: 'border-radius: 2em' %>
-                  </div>
-                <% end %>
-              </div>
-=======
-=======
-          <div>
-            <ul id="messages-list" class="list-unstyled text-white">
+          <div id="message-list-div">
+            <ul class="list-unstyled text-white" data-chatroom-target="messages">
               <% @chatroom.messages.each do |message| %>
                 <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
                   <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
@@ -73,16 +55,14 @@
               <% end %>
             </ul>
           </div>
->>>>>>> c67b277e63e64d9c25568b671d48a8ab3c440372
         </div>
         <div class="send-message">
-          <%= form_with(model: [ @chatroom, @chatroom.messages.build ], local: false) do |form| %>
+          <%= form_with(model: [ @chatroom, @chatroom.messages.build ], data: { action: "turbo:submit-end->chatroom#resetForm" }) do |form| %>
             <div id="messages-input" class="form-outline form-white d-flex justify-content-start ps-3">
               <%= form.text_field :content, placeholder: "Write a message...", class: "px-3 py-2 text-light", style: 'width: 85%; background: rgba(24,24,16, .2); border-radius: 2em; backdrop-filter: blur(15px); border: 2px solid rgba(255, 255, 255, 0.05); width:100%;' %>
               <%= form.submit 'Send', class: "btn btn-outline-secondary bg-white bg-opacity-25 border-0 ms-2 text-light", style: 'border-radius: 2em' %>
             </div>
           <% end %>
->>>>>>> 89f4f21c969e31ecbf2f3dd6ae6373a10ab7935e
         </div>
       </div>
       <% if @wall %>
@@ -108,14 +88,12 @@
                   <%= form.input :file, as: :file, label: false, input_html: { class: 'card mask-custom', style:"width:50%; " } %>
                 </div>
               </div>
-              <div class="d-flex justify-content-center">
-              <%= form.input :file, as: :file %>
-              </div>
             <% end %>
           </div>
       </div>
     <% end %>
     </div>
-</div>
 
+</div>
+</div>
 </section>

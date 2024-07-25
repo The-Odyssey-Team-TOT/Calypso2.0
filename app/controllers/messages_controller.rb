@@ -7,7 +7,7 @@ class MessagesController < ApplicationController
     @notification = Notification.new(message_id: @message.id)
 
     if @message.save
-      ChatroomChannel.broadcast_to @chatroom, message: render_message, sender_id: @message.user.id(@message)
+      ChatroomChannel.broadcast_to @chatroom, message: render_message(@message), sender_id: @message.user.id
       # @chatroom.users.where.not(id: current_user.id).each do |user|
         respond_to do |format|
           format.js { render 'messages/create' }
@@ -44,7 +44,7 @@ class MessagesController < ApplicationController
   end
 
   def render_message(message)
-    ApplicationController.renderer.render(partial: 'messages/message', locals: { message: message })
+    ApplicationController.render(partial: 'messages/message', locals: { message: message })
   end
 
   def set_chatroom
