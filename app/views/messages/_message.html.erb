@@ -1,7 +1,8 @@
 <li>
   <%= link_to user_path(message.user) do %>
-    <img src="https://media.licdn.com/dms/image/C4E03AQERbi3ilMhlZA/profile-displayphoto-shrink_800_800/0/1650007834660?e=1727308800&v=beta&t=cbrYcSnxgka40XfefzXr01t-VzUm7oHfcWRBAz3HwgE" alt="avatar"
-    class="rounded-circle d-flex align-self-start mx-2 shadow-1-strong" width="30">
+    <div >
+      <%= image_tag message.user.photo, class:"rounded-circle d-flex align-self-start mx-2 shadow-1-strong", style:"width: 30px;"%>
+    </div>
   <% end %>
   <div class="card mask-custom">
     <div class="card-mask-custom d-flex justify-content-between px-3 pt-2 pb-1"
