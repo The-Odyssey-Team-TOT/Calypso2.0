@@ -104,7 +104,6 @@ class ChatroomsController < ApplicationController
   end
 
   def show_users
-    @chatroom
     @users = @chatroom.users
   end
 
