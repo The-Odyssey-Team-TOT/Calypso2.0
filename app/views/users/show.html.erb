@@ -6,8 +6,8 @@
 
         <div class="card mask-custom mb-5 user-card">
 
-          <%= link_to chatroom_path(@chatroom), class: 'mt-2 me-1 p-3 rounded-circle bg-gray-200 bg-opacity-50 text-decoration-none text-white', style: 'width: 50px; height:50px;' do %>
-            <i class="fa-solid fa-arrow-left"></i>
+          <%= link_to chatroom_path(@chatroom), class: 'mt-2 p-3 rounded-circle bg-gray-200 bg-opacity-50 text-decoration-none text-white', style: 'width: 50px; height: 50px; margin-left: 5px; margin-bottom: 5px;' do %>
+            <i class="fa-solid fa-arrow-left" style="margin-left: 1px; padding-bottom: 12px;"></i>
           <% end %>
 
           <h1 class="user-card-title text-center text-light mb-4">Your profile</h1>
@@ -16,10 +16,10 @@
 
             <div class="col-5 ps-5 pt-3 pb-5 pe-3">
               <div class="flex-columns">
-                <div class="me-5" style="text-align: center;">
+                <div class="me-3" style="text-align: center;">
                   <img src="https://media.licdn.com/dms/image/C4E03AQERbi3ilMhlZA/profile-displayphoto-shrink_800_800/0/1650007834660?e=1727308800&v=beta&t=cbrYcSnxgka40XfefzXr01t-VzUm7oHfcWRBAz3HwgE" alt="avatar"
                   class="rounded-circle shadow-1-strong" style="margin: auto;" width="150">
-                  <p class="text-light mt-3"><strong><%= @user.nickname %></strong></p>
+                  <p class="text-light mt-3"><%= @user.nickname %></strong></p>
                   <p class="text-light bio-description"><%= @user.description %></p>
                   <br>
                   <%= link_to "Edit", edit_user_path(@user), class: 'button-small ms-3 me-1 mt-3 px-3 py-2' %>
@@ -28,7 +28,7 @@
               </div>
             </div>
 
-            <div class="col-5 ps-3 pt-2 pb-5 pe-3">
+            <div class="col-5 ps-3 pt-2 pb-5 pe-3" style="margin-right: 100px;">
               <div class="flex-columns">
 
                 <div>
@@ -63,16 +63,19 @@
                   <div>
                     <p class="text-light fw-bold user-infos-label">Messages</p>
                     <div class="border-1 border-light rounded-5" style="width:150px;">
-                    <p class="text-light m-1 ms-2 fw-bold user-infos-label"><%= @user.messages.last.chatroom.name %></p>
-                    <hr class="text-light m-1">
-                    <p class="text-light ms-2 user-infos-text"><%= @user.messages.last.content %></p>
+                      <p class="text-light m-1 ms-2 fw-bold user-infos-label"><%= @user.messages.last.chatroom.name %></p>
+                      <hr class="text-light m-1">
+                      <p class="text-light ms-2 user-infos-text"><%= @user.messages.last.content %></p>
                     </div>
                   </div>
-
+                  <div>
+                    <p class="text-light fw-bold user-infos-label">Posts</p>
+                    <div class="border-1 border-light rounded-5" style="width:150px;">
+                      <p class="text-light ms-2 user-infos-text pt-2"><%= @user.posts.last.content%></p>
+                    </div>
+                  </div>
                 </div>
-
               </div>
-            </div>
 
             <div class="col-5 p-5">
             </div>
