@@ -1,9 +1,12 @@
 puts "Destroy all"
 Post.destroy_all
 Wall.destroy_all
+Notification.destroy_all
 Message.destroy_all
-Chatroom.destroy_all
+ChatroomMembership.destroy_all
 User.destroy_all
+Member.destroy_all
+Chatroom.destroy_all
 
 puts "Creating Users"
 
@@ -13,7 +16,7 @@ User.create!(
   description: 'I am a young guy from Toulouse, hip-hop enthusiast and street art lover ! I want to learn english !',
   spoken_language: 'French',
   learning_language: 'English',
-  password: 'password1',
+  password: 'password5',
   photo: 'https://media.licdn.com/dms/image/C4E03AQERbi3ilMhlZA/profile-displayphoto-shrink_800_800/0/1650007834660?e=1727308800&v=beta&t=cbrYcSnxgka40XfefzXr01t-VzUm7oHfcWRBAz3HwgE'
 )
 
@@ -38,12 +41,12 @@ User.create!(
 )
 
 User.create!(
-  email: 'user2@example.com',
+  email: 'user8@example.com',
   nickname: 'Ryan',
   description: 'I am a Graphic Designer at Microsoft',
   spoken_language: 'English',
   learning_language: 'Japanese',
-  password: 'password2',
+  password: 'password3',
   photo: 'https://img.freepik.com/photos-gratuite/vue-avant-du-smiley-pere-tenant-tablette_23-2148414871.jpg?t=st=1721907432~exp=1721911032~hmac=cd39dcb7dbcf3be16cf313273ace290799496ac71d257f67b37e4b05d7af701e&w=996'
 )
 
@@ -53,7 +56,7 @@ User.create!(
   description: 'I am a baker in Marseille',
   spoken_language: 'French',
   learning_language: 'Polish',
-  password: 'password3',
+  password: 'password8',
   photo: 'https://img.freepik.com/photos-gratuite/femme-affaires-heureuse-etre-retour-au-travail_23-2148727621.jpg?t=st=1721907477~exp=1721911077~hmac=a0d22db040dda1b2466c8cf6997a28c18501ac8ed4fee7b7bff9a98632c8c0c2&w=996'
 )
 
@@ -77,71 +80,7 @@ User.create!(
   photo: 'https://img.freepik.com/photos-gratuite/rendu-3d-conception-avatar-ligne_23-2149699872.jpg?w=996&t=st=1721907670~exp=1721908270~hmac=bd2a73573aeec5d0b2e7b2bb352cc8c5dd362f11edc219466309c16e5b0d594f'
 )
 
-# Wall.create!(chatroom_id: Chatroom.first.id)
-# Message.destroy_all
-# Wall.destroy_all
-# Chatroom.destroy_all
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-# Chatroom.create!(
-#   name: "Human lore",
-#   password: "",
-#   status: "private",
-#   language: "english",
-#   language_level: "advanced",
-#   topic: "history",
-#   security_level: ""
-# )
-
-# Chatroom.create!(
-#   name: "pa comer rico",
-#   password: "",
-#   status: "public",
-#   language: "spanish",
-#   language_level: "fluent",
-#   topic: "food",
-#   security_level: ""
-# )
-
-# Chatroom.create!(
-#   name: "Foot",
-#   password: "",
-#   status: "private",
-#   language: "french",
-#   language_level: "beginner",
-#   topic: "sports",
-#   security_level: ""
-# )
-
-# Chatroom.create!(
-#   name: "Viajar com amigos",
-#   password: "",
-#   status: "private",
-#   language: "portuguese",
-#   language_level: "medium",
-#   topic: "travel",
-#   security_level: ""
-# )
-
-# Chatroom.create!(
-#   name: "Cantare in Napoli",
-#   password: "",
-#   status: "private",
-#   language: "italian",
-#   language_level: "advanced",
-#   topic: "music",
-#   security_level: ""
-# )
-
-# Chatroom.find_each do |chatroom|
-#   Wall.create!(chatroom_id: chatroom.id)
-# end
-=======
-
-=======
->>>>>>> 60d2e8b17d51e9266ac8b0a90f27dda0e6d095b8
 puts "Creating Chatroom"
 
 Chatroom.create!(
@@ -204,10 +143,6 @@ Chatroom.create!(
   security_level: ""
 )
 
-puts "Creating Wall"
-Chatroom.find_each do |chatroom|
-  Wall.create!(chatroom_id: chatroom.id)
-end
 
 chatroom = Chatroom.find_by(name: "Welcome !")
 Message.create!(
@@ -215,4 +150,31 @@ Message.create!(
   chatroom: chatroom,
   user: User.find_by(nickname: "Chatbot")
 )
->>>>>>> 89f4f21c969e31ecbf2f3dd6ae6373a10ab7935e
+
+Chatroom.create!(
+  name: "Singing in japanese",
+  password: "",
+  status: "public",
+  language: "japanese",
+  language_level: "medium",
+  topic: "music",
+  security_level: ""
+)
+
+Chatroom.create!(
+  name: "Peliculas que te cambiaron la vida",
+  password: "",
+  status: "public",
+  language: "spanish",
+  language_level: "advanced",
+  topic: "movies",
+  security_level: ""
+)
+
+
+
+
+  puts "Creating Wall"
+  Chatroom.find_each do |chatroom|
+    Wall.create!(chatroom_id: chatroom.id)
+  end

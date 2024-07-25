@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  has_one_attached :photo
   has_many :chatroom_memberships
   has_many :chatrooms, through: :chatroom_memberships
   has_many :posts
