@@ -43,15 +43,17 @@
 
         <div id="messages-container" class="p-2" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>" data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
           <br>
-          <ul id="messages-list" class="list-unstyled text-white">
-            <% @chatroom.messages.each do |message| %>
-              <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
-                <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
-                   <%= render 'messages/message', message: message %>
+          <div>
+            <ul id="messages-list" class="list-unstyled text-white">
+              <% @chatroom.messages.each do |message| %>
+                <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
+                  <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+                    <%= render 'messages/message', message: message %>
+                  </div>
                 </div>
-              </div>
-            <% end %>
-          </ul>
+              <% end %>
+            </ul>
+          </div>
         </div>
         <div class="send-message">
           <%= form_with(model: [ @chatroom, @chatroom.messages.build ], local: false) do |form| %>
