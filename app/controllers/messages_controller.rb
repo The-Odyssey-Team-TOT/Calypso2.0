@@ -8,20 +8,20 @@ class MessagesController < ApplicationController
 
     if @message.save
       ChatroomChannel.broadcast_to @chatroom, message: render_message(@message), sender_id: @message.user.id
-      respond_to do |format|
-        format.js { render 'messages/create' }
-        format.html { redirect_to chatroom_path(@chatroom) }
-      end
-      @chatroom.users.where.not(id: current_user.id).each do |user|
+      # respond_to do |format|
+      #   format.js { render 'messages/create' }
+      #   format.html { redirect_to chatroom_path(@chatroom) }
+      # end
+      # @chatroom.users.where.not(id: current_user.id).each do |user|
         @notification = Notification.create(
           user: current_user,
-          recipient: user,
+          recipient: current_user,
           notifiable: @message,
           action: "sent"
         )
-      NotificationsChannel.broadcast_to current_user, notification: render_notification(@notification)
+      NotificationsChannel.broadcast_to(current_user,  render_to_string(partial: "notifications/notification", locals: {notification: @notification}))
       head :ok
-      end
+      # end
     else
       respond_to do |format|
         format.js { render 'messages/fail' }
