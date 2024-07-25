@@ -20,8 +20,8 @@ class MessagesController < ApplicationController
           action: "sent"
         )
       NotificationsChannel.broadcast_to current_user, notification: render_notification(@notification)
+      head :ok
     end
-    head :ok
     else
       respond_to do |format|
         format.js { render 'messages/fail' }
