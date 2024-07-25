@@ -10,8 +10,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="gradient-custom" data-controller="notification" data-notification-user-value="<%= current_user.id if user_signed_in?%>">
     <%= yield %>
-    <%# <div id="notifications"></div> %>
   </body>
 </html>
