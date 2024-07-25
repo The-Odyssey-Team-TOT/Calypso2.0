@@ -6,7 +6,9 @@
 
         <div class="card mask-custom mb-5 user-card">
 
-          <%= link_to "", chatroom_path(@user, @chatroom), class: 'mt-2 me-1 px-3 py-3 rounded-circle bg-gray-200 bg-opacity-50 text-decoration-none text-white', style: 'width: 30px; height:30px;' %>
+          <%= link_to chatroom_path(@chatroom), class: 'mt-2 me-1 px-3 py-3 rounded-circle bg-gray-200 bg-opacity-50 text-decoration-none text-white', style: 'width: 30px; height:30px;' do %>
+            <i class="fa-solid fa-arrow-left me-2 mt-3"></i>
+          <% end  %>
 
           <h1 class="user-card-title text-center text-light mb-4">Your profile</h1>
 
