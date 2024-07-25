@@ -41,10 +41,10 @@
           </div>
         </div>
 
-        <div id="messages-container" class="p-2" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>" data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
+        <div id="messages-container" class="ps-2 pe-2 pb-2" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>" data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
           <br>
-          <div>
-            <ul id="messages-list" class="list-unstyled text-white">
+          <div id="message-list-div">
+            <ul class="list-unstyled text-white">
               <% @chatroom.messages.each do |message| %>
                 <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
                   <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
