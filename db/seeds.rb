@@ -82,7 +82,6 @@ User.create!(
 # Wall.destroy_all
 # Chatroom.destroy_all
 
-
 puts "Creating Chatroom"
 
 Chatroom.create!(
