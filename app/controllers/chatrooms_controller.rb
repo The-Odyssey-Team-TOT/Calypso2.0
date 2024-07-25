@@ -40,8 +40,6 @@ class ChatroomsController < ApplicationController
       end
   end
 
-
-
   def create
     @chatroom = Chatroom.new(chatroom_params)
     @chatroom.user_id = current_user.id

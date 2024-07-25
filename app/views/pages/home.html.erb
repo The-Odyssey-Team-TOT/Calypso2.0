@@ -1,16 +1,30 @@
-<nav>
-<%= button_to 'Sign Out', destroy_user_session_path, method: :delete,
-  form: {data: {turbo_confirm: 'Are you sure?'}} %>
-<%= button_to 'Sign In', new_user_session_path, class: 'btn bg-gray-300 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded' %>
-</nav>
-<div id="image-container" class="min-h-screen bg-black text-white flex items-center justify-center">
-  <div id="content" class="text-center">
-    <h1 class="text-6xl font-bold mb-4">Calypso</h1>
-    <p class="text-xl mb-8">Talk Different</p>
-    <div class="space-x-4 home-btn">
-      <%= link_to 'Create', new_chatroom_path, class: 'bg-gray-300 hover:bg-gray-400 text-black font-bold py-2 px-4 rounded' %>
-      <%= link_to 'Join', chatroom_path(29), class: 'bg-gray-300 hover:bg-gray-400 text-black font-bold py-2 px-4 rounded' %>
+<section class="gradient-custom" style="min-height:100vh;">
+  <div class="d-flex justify-content-end pt-3" style="padding-right: 70px;">
+    <%= button_to 'Log in', new_user_session_path, class:'button-big' %>
+    <%= button_to 'Log out', destroy_user_session_path, class:'button-link-style', method: :delete, form: {data: {turbo_confirm: 'Are you sure?'}} %>
+  </div>
+  <div class="container" style="padding-top: 150px;">
+    <div class="row">
+
+      <div class="col-6">
+        <div class="text-white flex items-center justify-center">
+          <div class="" style="padding-right: 75px;">
+            <h1 style="font-size: 60px;">Calypso</h1>
+            <p class="" style="font-size: 17px; padding-left: 8px;">A new way to learn languages</p>
+            <br>
+            <br>
+            <br>
+            <div class="">
+              <%= link_to 'Create', new_chatroom_path, class: 'button-medium', style:'margin-left: 20px;' %>
+              <%= link_to 'Join', chatroom_path(Chatroom.first), class: 'button-medium', style:'margin-left: 50px;'%>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <%# <div class="col-6"> %>
+       <%# <%= cl_image_tag 'people-talk.png', style:'width: 200px;' %>
+      <%# </div> %>
     </div>
   </div>
-</div>
+</section>
