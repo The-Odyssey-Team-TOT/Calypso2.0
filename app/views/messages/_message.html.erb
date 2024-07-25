@@ -1,6 +1,8 @@
-<li class="d-flex flex-row-reverse mb-2">
-  <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp" alt="avatar"
+<li>
+  <%= link_to user_path(message.user) do %>
+    <img src="https://media.licdn.com/dms/image/C4E03AQERbi3ilMhlZA/profile-displayphoto-shrink_800_800/0/1650007834660?e=1727308800&v=beta&t=cbrYcSnxgka40XfefzXr01t-VzUm7oHfcWRBAz3HwgE" alt="avatar"
     class="rounded-circle d-flex align-self-start mx-2 shadow-1-strong" width="30">
+  <% end %>
   <div class="card mask-custom">
     <div class="card-mask-custom d-flex justify-content-between px-3 py-2"
       style="border-bottom: 1px solid rgba(255,255,255,.3);">

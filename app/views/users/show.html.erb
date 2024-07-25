@@ -1,37 +1,87 @@
+<section class="gradient-custom">
 
-<div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
-  <div class="card p-4"> <div class=" image d-flex flex-column justify-content-center align-items-center">
-    <button class="btn btn-secondary"> <img src="https://i.imgur.com/wvxPV9S.png" height="100" width="100" /></button>
-    <span class="name mt-3">Eleanor Pena</span> <span class="idd">@eleanorpena</span>
-      <div class="d-flex flex-row justify-content-center align-items-center gap-2">
-      <span class="idd1">Oxc4c16a645_b21a</span> <span><i class="fa fa-copy"></i></span>
+  <div class="container py-5 px-5">
+
+      <div class="row d-flex justify-content-center">
+
+        <div class="card mask-custom mb-5 user-card">
+
+          <%= link_to "", chatroom_path(@user, @chatroom), class: 'mt-2 me-1 px-3 py-3 rounded-circle bg-gray-200 bg-opacity-50 text-decoration-none text-white', style: 'width: 30px; height:30px;' %>
+
+          <h1 class="user-card-title text-center text-light mb-4">Your profile</h1>
+
+          <div class="d-flex justify-content-between">
+
+            <div class="col-5 ps-5 pt-3 pb-5 pe-3">
+              <div class="flex-columns">
+                <div class="me-5" style="text-align: center;">
+                  <img src="https://media.licdn.com/dms/image/C4E03AQERbi3ilMhlZA/profile-displayphoto-shrink_800_800/0/1650007834660?e=1727308800&v=beta&t=cbrYcSnxgka40XfefzXr01t-VzUm7oHfcWRBAz3HwgE" alt="avatar"
+                  class="rounded-circle shadow-1-strong" style="margin: auto;" width="150">
+                  <p class="text-light mt-3"><strong><%= @user.nickname %></strong></p>
+                  <p class="text-light bio-description"><%= @user.description %></p>
+                  <br>
+                  <%= link_to "Edit", edit_user_path(@user), class: 'button-small ms-3 me-1 mt-3 px-3 py-2' %>
+                  <%= link_to "Delete", user_path(@user), class: 'button-small mt-3 ms-1 px-3 py-2 me-2', data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-5 ps-3 pt-2 pb-5 pe-3">
+              <div class="flex-columns">
+
+                <div>
+                  <p class="text-light" style="font-size: 20px;">Informations</p>
+                  <hr class="text-light">
+                </div>
+
+                <div class="d-flex flex-start justify-content-between">
+                  <div>
+                    <p class="text-light fw-bold user-infos-label">Email</p>
+                    <p class="text-light user-infos-text"><%= @user.email %></p>
+                    <p class="text-light fw-bold user-infos-label ">Spoken languages</p>
+                    <p class="text-light user-infos-text"><%= @user.spoken_language %></p>
+                  </div>
+                  <div>
+                    <p class="text-light fw-bold user-infos-label">Password</p>
+                    <p class="text-light user-infos-text">**********</p>
+                    <p class="text-light fw-bold user-infos-label"><strong>Learning languages</strong></p>
+                    <p class="text-light user-infos-text"><%= @user.learning_language %></p>
+                  </div>
+                </div>
+
+                <br>
+                <br>
+
+                <div>
+                  <p class="text-light" style="font-size: 20px;">Recent activity</p>
+                  <hr class="text-light">
+                </div>
+
+                <div class="d-flex flex-start justify-content-between">
+                  <div>
+                    <p class="text-light fw-bold user-infos-label">Messages</p>
+                    <div class="border-1 border-light rounded-5" style="width:150px;">
+                    <p class="text-light m-1 ms-2 fw-bold user-infos-label"><%= @user.messages.last.chatroom.name %></p>
+                    <hr class="text-light m-1">
+                    <p class="text-light ms-2 user-infos-text"><%= @user.messages.last.content %></p>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col-5 p-5">
+            </div>
+
+
+          </div>
+
+        </div>
+
       </div>
-      <div class="d-flex flex-row justify-content-center align-items-center mt-3">
-      <span class="number">1069
-        <span class="follow">Followers</span>
-      </span> </div>
-      <div class=" d-flex mt-2">
-        <button class="btn1 btn-dark">Edit Profile</button>
-      </div>
-      <div class="text mt-3">
-        <span>Eleanor Pena is a creator of minimalistic x bold graphics and digital artwork.<br>
-          <br> Artist/ Creative Director by Day #NFT minting@ with FND night.
-        </span>
-      </div>
-      <div class="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center">
-        <span><i class="fa fa-twitter"></i>
-        </span>
-        <span><i class="fa fa-facebook-f"></i>
-        </span>
-        <span><i class="fa fa-instagram"></i>
-        </span>
-        <span><i class="fa fa-linkedin"></i>
-        </span>
-      </div>
-      <div class=" px-2 rounded mt-4 date ">
-        <span class="join">Joined May,2021
-        </span>
-      </div>
-    </div>
+
   </div>
-</div>
+
+</section>

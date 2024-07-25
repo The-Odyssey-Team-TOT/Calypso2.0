@@ -1,43 +1,81 @@
-<div class="form-create">
-  <h1 class="text-3xl font-bold mb-6">Create your room</h1>
+<section class="gradient-custom">
 
-  <%= form_with(model: @chatroom, local: true) do |form| %>
-    <div class="mb-4">
-      <%= form.label :name, "Room name *", class: "block text-gray-700 text-white font-bold mb-2" %>
-      <%= form.text_field :name, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", required: true %>
-    </div>
-    <div class="mb-4">
-      <%= form.label :password, "Password *", class: "block text-gray-700 text-white font-bold mb-2" %>
-      <%= form.password_field :password, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", required: false %>
-    </div>
-    <div class="mb-4">
-      <%= form.label :status, "Status", class: "block text-gray-700 text-white font-bold mb-2" %>
-      <div class="flex items-start">
-        <div class="flex items-center mr-6">
-          <%= form.radio_button :status, "private", class: "mr-2 leading-tight" %>
-          <%= form.label :status, "Private", class: "text-gray-700 text-white font-medium" %>
-        </div>
-        <div class="flex items-center">
-          <%= form.radio_button :status, "public", class: "mr-2 leading-tight" %>
-          <%= form.label :status, "Public", class: "text-gray-700 text-white font-medium" %>
-        </div>
+  <div class="container py-5 px-5">
+
+      <div class="row">
+
+        <div class="card mask-custom mb-5">
+
+          <h1 class="fs-2 text-center text-light my-4">Create your room</h1>
+
+          <%= form_with(model: @chatroom, local: true) do |form| %>
+
+            <div class="d-flex justify-content-center">
+
+              <div class="col-5 p-5">
+                <div class="mb-4">
+                  <%= form.label :name, "Room name *", class: "text-light mb-2" %>
+                  <%= form.text_field :name, class: "px-3 py-2 text-light", style: 'width: 100%; background: rgba(24,24,16, .2); border-radius: 1em; backdrop-filter: blur(15px); border: 2px solid rgba(255, 255, 255, 0.05);', required: true %>
+                </div>
+                <div class="mb-4">
+                  <%= form.label :status, "Status", class: "text-light mb-2" %>
+                  <div class="flex items-start">
+                    <div class="flex items-center mr-6">
+                      <%= form.radio_button :status, "private", class: "me-2 form-check-input" %>
+                      <%= form.label :status, "Private", class: "text-light font-medium" %>
+                    </div>
+                    <div class="flex items-center">
+                      <%= form.radio_button :status, "public", class: "me-2 form-check-input" %>
+                      <%= form.label :status, "Public", class: "text-light font-medium" %>
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-4">
+                  <%= form.label :password, "Password *", class: "text-light mb-2" %>
+                  <%= form.password_field :password, class: "px-3 py-2 text-light", style: 'width: 100%; background: rgba(24,24,16, .2); border-radius: 1em; backdrop-filter: blur(15px); border: 2px solid rgba(255, 255, 255, 0.05);', required: false %>
+                </div>
+                <div class="mb-4">
+                  <%= form.label :topic, "Topic", class: "text-light mb-2" %>
+                  <%= form.text_field :topic, class: "px-3 py-2 text-light", style: 'width: 100%; background: rgba(24,24,16, .2); border-radius: 1em; backdrop-filter: blur(15px); border: 2px solid rgba(255, 255, 255, 0.05);', required: true %>
+                </div>
+              </div>
+
+              <div class="col-5 p-5">
+                <div class="mb-4">
+                  <%= form.label :language, "Language", class: "text-light mb-2" %>
+                  <%= form.text_field :language, class: "px-3 py-2 text-light", style: 'width: 100%; background: rgba(24,24,16, .2); border-radius: 1em; backdrop-filter: blur(15px); border: 2px solid rgba(255, 255, 255, 0.05);', required: true %>
+                </div>
+                <div class="mb-4">
+                  <%= form.label :language_level, "Language Level", class: "text-light mb-2" %>
+                  <div class="flex-columns">
+                    <div class="flex items-center mb-1">
+                      <%= form.radio_button :language_level, "beginner", class: "me-2 form-check-input" %>
+                      <%= form.label :language_level, "Beginner", class: "text-light font-medium mt-1" %>
+                    </div>
+                    <div class="flex items-center mb-1">
+                      <%= form.radio_button :language_level, "medium", class: "me-2 form-check-input" %>
+                      <%= form.label :language_level, "Medium", class: "text-light font-medium mt-1" %>
+                    </div>
+                    <div class="flex items-center mb-1">
+                      <%= form.radio_button :language_level, "advanced", class: "me-2 form-check-input" %>
+                      <%= form.label :language_level, "Advanced", class: "text-light font-medium mt-1" %>
+                    </div>
+                    <div class="flex items-center mb-1">
+                      <%= form.radio_button :language_level, "fluent", class: "me-2 form-check-input" %>
+                      <%= form.label :language_level, "Fluent", class: "text-light font-medium mt-1" %>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-center mt-5">
+                  <%= form.submit 'Create', class: "px-5 py-2 btn btn-outline-secondary bg-white bg-opacity-25 border-0 ms-2 text-light position-center", style: 'border-radius: 2em' %>
+                </div>
+
+              </div>
+            </div>
+          <% end %>
+
       </div>
     </div>
-    <div class="mb-4">
-      <%= form.label :language, "Language", class: "block text-gray-700 text-white font-bold mb-2" %>
-      <%= form.text_field :language, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", required: true %>
-    </div>
-    <div class="mb-4">
-      <%= form.label :language_level, "Language Level", class: "block text-gray-700 text-white font-bold mb-2" %>
-      <%= form.select :language_level, options_for_select(Chatroom::LANGUAGE_LEVEL), {}, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", required: true %>
-    </div>
-    <div class="mb-4">
-      <%= form.label :topic, "Topic", class: "block text-gray-700 text-white font-bold mb-2" %>
-      <%= form.text_field :topic, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", required: true %>
-    </div>
-
-    <div class="flex items-center justify-between">
-      <%= form.submit 'Create', class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
-    </div>
-  <% end %>
-</div>
+  </div>
+</section>

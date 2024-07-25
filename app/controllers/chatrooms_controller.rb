@@ -40,8 +40,6 @@ class ChatroomsController < ApplicationController
       end
   end
 
-
-
   def create
     @chatroom = Chatroom.new(chatroom_params)
     @chatroom.user_id = current_user.id
@@ -121,6 +119,6 @@ class ChatroomsController < ApplicationController
   end
 
   def chatroom_params
-    params.require(:chatroom).permit(:name, :password, :status, :language, :language_level, :user_id, :topic)
+    params.require(:chatroom).permit(:name, :password, :status, :topic, :language, :language_level, :user_id)
   end
 end
