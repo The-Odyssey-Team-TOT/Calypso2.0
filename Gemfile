@@ -83,3 +83,4 @@ gem "pg_search"
 
 gem 'devise_invitable'
 gem "noticed"
+

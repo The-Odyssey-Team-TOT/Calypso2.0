@@ -82,6 +82,66 @@ User.create!(
 # Wall.destroy_all
 # Chatroom.destroy_all
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+# Chatroom.create!(
+#   name: "Human lore",
+#   password: "",
+#   status: "private",
+#   language: "english",
+#   language_level: "advanced",
+#   topic: "history",
+#   security_level: ""
+# )
+
+# Chatroom.create!(
+#   name: "pa comer rico",
+#   password: "",
+#   status: "public",
+#   language: "spanish",
+#   language_level: "fluent",
+#   topic: "food",
+#   security_level: ""
+# )
+
+# Chatroom.create!(
+#   name: "Foot",
+#   password: "",
+#   status: "private",
+#   language: "french",
+#   language_level: "beginner",
+#   topic: "sports",
+#   security_level: ""
+# )
+
+# Chatroom.create!(
+#   name: "Viajar com amigos",
+#   password: "",
+#   status: "private",
+#   language: "portuguese",
+#   language_level: "medium",
+#   topic: "travel",
+#   security_level: ""
+# )
+
+# Chatroom.create!(
+#   name: "Cantare in Napoli",
+#   password: "",
+#   status: "private",
+#   language: "italian",
+#   language_level: "advanced",
+#   topic: "music",
+#   security_level: ""
+# )
+
+# Chatroom.find_each do |chatroom|
+#   Wall.create!(chatroom_id: chatroom.id)
+# end
+=======
+
+=======
+>>>>>>> 60d2e8b17d51e9266ac8b0a90f27dda0e6d095b8
 puts "Creating Chatroom"
 
 Chatroom.create!(
@@ -155,3 +215,4 @@ Message.create!(
   chatroom: chatroom,
   user: User.find_by(nickname: "Chatbot")
 )
+>>>>>>> 89f4f21c969e31ecbf2f3dd6ae6373a10ab7935e
