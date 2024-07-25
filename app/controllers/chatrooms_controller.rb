@@ -1,5 +1,6 @@
 class ChatroomsController < ApplicationController
   before_action :set_chatroom, except: [:new, :create, :whisper]
+  before_action :session_chatroom, only: [:show]
 
   def show
     @notification = Notification.new
@@ -103,8 +104,11 @@ class ChatroomsController < ApplicationController
   end
 
   def show_users
-    @chatroom
     @users = @chatroom.users
+  end
+
+  def session_chatroom
+    session[:chatroom] = params[:id]
   end
 
   private
