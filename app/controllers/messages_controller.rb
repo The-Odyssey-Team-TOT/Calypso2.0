@@ -9,6 +9,10 @@ class MessagesController < ApplicationController
     if @message.save
       ChatroomChannel.broadcast_to @chatroom, message: render_message, sender_id: @message.user.id(@message)
       # @chatroom.users.where.not(id: current_user.id).each do |user|
+        respond_to do |format|
+          format.js { render 'messages/create' }
+          format.html { redirect_to chatroom_path(@chatroom) }
+        end
         @notification = Notification.create(
           user: current_user,
           recipient: current_user,
@@ -18,10 +22,6 @@ class MessagesController < ApplicationController
         )
         NotificationsChannel.broadcast_to(current_user,  render_to_string(partial: "notifications/notification", locals: {notification: @notification}))
         head :ok
-      # end
-      # respond_to do |format|
-      #   format.js { render 'messages/create' }
-      #   format.html { redirect_to chatroom_path(@chatroom) }
       # end
     else
       # respond_to do |format|
