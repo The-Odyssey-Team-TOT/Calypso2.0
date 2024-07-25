@@ -37,7 +37,7 @@
         <div id="messages-container" class="ps-2 pe-2 pb-2">
           <br>
           <div id="message-list-div">
-            <ul class="list-unstyled text-white" data-chatroom-target=“messages”>
+            <ul class="list-unstyled text-white" data-chatroom-target="messages">
               <% @chatroom.messages.each do |message| %>
                 <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
                   <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
