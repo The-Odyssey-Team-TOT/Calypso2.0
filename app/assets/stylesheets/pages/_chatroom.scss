@@ -188,8 +188,12 @@ li {
 }
 
 #message-list-div {
-  height: 500px;
+  height: 490px;
   overflow-y: auto;
   margin-top: -15px;
+}
 
+#post-list-div {
+  height: 490px;
+  overflow-y: auto;
 }
