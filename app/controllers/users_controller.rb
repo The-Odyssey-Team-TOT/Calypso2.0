@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @chatroom = session[:chatroom]
     @user = User.find(params[:id])
   end
 

@@ -37,6 +37,7 @@
 
         <div id="messages-container" class="p-2" data-controller="chatroom-subscription" data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>" data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
           <br>
+<<<<<<< HEAD
           <ul id="messages-list" class="list-unstyled text-white" data-chatroom-target="messages">
             <% @chatroom.messages.each do |message| %>
               <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
@@ -56,6 +57,19 @@
                 <% end %>
               </div>
 =======
+=======
+          <div>
+            <ul id="messages-list" class="list-unstyled text-white">
+              <% @chatroom.messages.each do |message| %>
+                <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
+                  <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+                    <%= render 'messages/message', message: message %>
+                  </div>
+                </div>
+              <% end %>
+            </ul>
+          </div>
+>>>>>>> c67b277e63e64d9c25568b671d48a8ab3c440372
         </div>
         <div class="send-message">
           <%= form_with(model: [ @chatroom, @chatroom.messages.build ], local: false) do |form| %>
