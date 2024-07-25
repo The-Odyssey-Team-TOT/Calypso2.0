@@ -16,17 +16,19 @@ class MessagesController < ApplicationController
           action: "sent",
           message: @message
         )
-        NotificationsChannel.broadcast_to current_user, notification: render_notification(@notification)
+        NotificationsChannel.broadcast_to(current_user,  render_to_string(partial: "notifications/notification", locals: {notification: @notification}))
+        head :ok
       # end
-      respond_to do |format|
-        format.js { render 'messages/create' }
-        format.html { redirect_to chatroom_path(@chatroom) }
-      end
+      # respond_to do |format|
+      #   format.js { render 'messages/create' }
+      #   format.html { redirect_to chatroom_path(@chatroom) }
+      # end
     else
-      respond_to do |format|
-        format.js { render 'messages/fail' }
-        format.html { render 'chatrooms/show' }
-      end
+      # respond_to do |format|
+      #   format.js { render 'messages/fail' }
+      #   format.html { render 'chatrooms/show' }
+      render "chatrooms/show", status: :unprocessable_entity
+      # end
     end
   end
 

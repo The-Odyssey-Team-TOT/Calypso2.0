@@ -1,4 +1,3 @@
-<%# <% if @notification.nil? %>
-<%# <div></div>  %>
-
+<% if notification %>
 <div><%= notification.user.nickname%> <%= notification.action %> you a message!</div>
+<% end %>

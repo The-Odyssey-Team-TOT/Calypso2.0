@@ -1,7 +1,5 @@
 <section class="gradient-custom">
-<div id="notification">
-  <%# <%= ApplicationController.render partial: "messages/notification", formats:[:html] %> %>
-  <%= render "notifications/notification" %>
+<div id="notification" data-notification-target="notif">
 </div>
   <div class="container py-3">
 
@@ -22,7 +20,7 @@
         </div>
         <%= render 'rooms' %>
       </div>
-      <div class="col-6">
+      <div class="col-6" data-controller="chatroom" data-chatroom-chatroom-id-value="<%= @chatroom.id%>">
         <div class="card mask-custom" id="chatroom-title-card">
           <div class="card-mask-custom d-flex justify-content-flex-start pt-3 ps-3 pb-2 position-relative"
           style="border-bottom: 1px solid rgba(255,255,255,.3); border-radius: 2em">
@@ -39,13 +37,13 @@
 
         <div id="messages-container" class="p-2">
           <br>
-          <ul id="messages-list" class="list-unstyled text-white">
+          <ul id="messages-list" class="list-unstyled text-white" data-chatroom-target="messages">
             <% @chatroom.messages.each do |message| %>
               <%= render 'messages/message', message: message %>
             <% end %>
           </ul>
               <div>
-                <%= form_with(model: [ @chatroom, @chatroom.messages.build ], local: false) do |form| %>
+                <%= form_with(model: [ @chatroom, @chatroom.messages.build ], data: { action: "turbo:submit-end->chatroom#resetForm" }) do |form| %>
                   <div id="messages-input" class="form-outline form-white d-flex justify-content-center">
                     <%= form.text_field :content, placeholder: "Write a message...", class: "px-3 py-2 text-light", style: 'width: 85%; background: rgba(24,24,16, .2); border-radius: 2em; backdrop-filter: blur(15px); border: 2px solid rgba(255, 255, 255, 0.05); width:80%;' %>
                     <%= form.submit 'Send', class: "btn btn-outline-secondary bg-white bg-opacity-25 border-0 ms-2 text-light", style: 'border-radius: 2em' %>
@@ -81,7 +79,6 @@
       </div>
     <% end %>
     </div>
-<%= console %>
 </div>
 
 </section>

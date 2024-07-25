@@ -3,12 +3,17 @@ import { createConsumer } from "@rails/actioncable"
 
 // Connects to data-controller="notification"
 export default class extends Controller {
+  static targets = ["notif"]
+  static values = {user: Number}
   connect() {
-    consumer.subscriptions.create("NotificationsChannel", {
+    const notifElement = this.notifTarget
+    const userId = this.userValue
+
+    this.subscription = createConsumer().subscriptions.create({channel: "NotificationsChannel", id: userId}, {
       received(data) {
         console.log(data)
-        const notificationsElement = document.getElementById('notifications')
-        notificationsElement.innerHTML += data.html
+        console.log(notifElement)
+        notifElement.insertAdjacentHTML("afterbegin", data)
       }
     });
   }
