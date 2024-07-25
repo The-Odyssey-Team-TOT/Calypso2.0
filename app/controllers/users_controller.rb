@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:chatroom).permit(:email, :password, :nickname, :description, :spoken_language, :learning_language)
+    params.require(:chatroom).permit(:email, :password, :nickname, :description, :spoken_language, :learning_language, :photo)
   end
 
 end

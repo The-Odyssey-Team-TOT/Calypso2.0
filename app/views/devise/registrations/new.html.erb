@@ -31,6 +31,10 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "learning_language", placeholder: "The language you want to learn" } %>
+    <%= f.input :photo, as: :file,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "photo", placeholder: "Choose a picture" } %>
   </div>
 
   <div class="form-actions">

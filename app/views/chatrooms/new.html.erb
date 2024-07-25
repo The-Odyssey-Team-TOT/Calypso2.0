@@ -18,7 +18,7 @@
                   <%= form.text_field :name, class: "px-3 py-2 text-light", style: 'width: 100%; background: rgba(24,24,16, .2); border-radius: 1em; backdrop-filter: blur(15px); border: 2px solid rgba(255, 255, 255, 0.05);', required: true %>
                 </div>
                 <div class="mb-4">
-                  <%= form.label :status, "Status", class: "text-light mb-2" %>
+                  <%= form.label :status, "Status *", class: "text-light mb-2" %>
                   <div class="flex items-start">
                     <div class="flex items-center mr-6">
                       <%= form.radio_button :status, "private", class: "me-2 form-check-input" %>
@@ -42,7 +42,7 @@
 
               <div class="col-5 p-5">
                 <div class="mb-4">
-                  <%= form.label :language, "Language", class: "text-light mb-2" %>
+                  <%= form.label :language, "Room language", class: "text-light mb-2" %>
                   <%= form.text_field :language, class: "px-3 py-2 text-light", style: 'width: 100%; background: rgba(24,24,16, .2); border-radius: 1em; backdrop-filter: blur(15px); border: 2px solid rgba(255, 255, 255, 0.05);', required: true %>
                 </div>
                 <div class="mb-4">
@@ -68,7 +68,7 @@
                 </div>
 
                 <div class="d-flex justify-content-center mt-5">
-                  <%= form.submit 'Create', class: "px-5 py-2 btn btn-outline-secondary bg-white bg-opacity-25 border-0 ms-2 text-light position-center", style: 'border-radius: 2em' %>
+                  <%= form.submit 'Create', class: "px-5 py-2 btn btn-outline-secondary bg-white bg-opacity-25 border-0 ms-4 mt-2 text-light position-center", style: 'border-radius: 2em' %>
                 </div>
 
               </div>
