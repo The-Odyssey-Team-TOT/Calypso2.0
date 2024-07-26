@@ -11,8 +11,8 @@
           </div>
           <div class="pt-1 text-center">
             <p class="mt-2 px-2 py-1 rounded-pill bg-white bg-opacity-25 text-capitalize room-info" style="width: 100%; font-size: 9px; margin-bottom: 5px;"><%= chatroom.language %></p>
-            <% if chatroom.topic.present? %>
-            <p class="px-2 py-1 rounded-pill bg-white bg-opacity-25 text-capitalize room-info" style="width: 100%; font-size: 9px; margin-bottom: 5px"><%= chatroom.topic %></p>
+            <% if chatroom.language_level.present? %>
+            <p class="px-2 py-1 rounded-pill bg-white bg-opacity-25 text-capitalize room-info" style="width: 100%; font-size: 9px; margin-bottom: 5px"><%= chatroom.language_level %></p>
             <% end %>
           </div>
       </li>

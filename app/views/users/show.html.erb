@@ -72,6 +72,8 @@
                     <div class="border-1 border-light rounded-5" style="width:150px;">
                       <% if @user.posts.any? %>
                       <p class="text-light ms-2 user-infos-text pt-2"><%= @user.posts.last.content%></p>
+                      <% else %>
+                      <p class="text-light ms-2 user-infos-text pt-2"cs><%= @user.nickname %> didn't post anything yet</p>
                       <% end %>
                     </div>
                   </div>
